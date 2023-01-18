@@ -1,10 +1,26 @@
 import React, {useState} from 'react'
 import logo from '../images/logo.png'
 import { Link } from 'react-scroll';
+import SignUpModal from './Modals/SignUpModal';
+import SignInModal from './Modals/SignInModal';
+
+
 
 function Navbar() {
 
-    const [nav, setnav] = useState(false);
+     // useState를 사용하여 open상태를 변경한다. (open일때 true로 만들어 열리는 방식)
+  const [signUpModalOpen, setSignUpModalOpen] = useState(false);
+  const [signInModalOpen, setSignInModalOpen] = useState(false);
+
+  const openModal = () => {
+    setSignUpModalOpen(true);
+    setSignInModalOpen(true);
+  };
+  const closeModal = () => {
+    setSignUpModalOpen(false);
+    setSignInModalOpen(false);
+  };
+  const [nav, setnav] = useState(false);
 
     const changeBackground = () => {
         if(window.scrollY >= 50) {
@@ -16,7 +32,10 @@ function Navbar() {
     }
     window.addEventListener('scroll', changeBackground);
 
+    
+
   return (
+    <>
     <nav className={nav ? "nav active" : "nav"}>
         <Link to='main' className='logo'>
             <img src={logo} alt='' />
@@ -31,8 +50,13 @@ function Navbar() {
             <li><Link to= 'offer' smooth={true} duration={1000}>MEMBERSHIP</Link></li>
             <li><Link to= 'about' smooth={true} duration={1000}>APPOINTMENT</Link></li>
             <li><Link to= 'contact' smooth={true} duration={1000}>CONTACT</Link></li>
+            <li><Link onClick={()=> {setSignInModalOpen(true)}}>Sign In</Link></li>
+            <li><Link onClick={()=> {setSignUpModalOpen(true)}}>Sign Up</Link></li>
         </ul>
     </nav>
+    <SignUpModal open={signUpModalOpen} close={closeModal} header="Sing Up"></SignUpModal>
+    <SignInModal open={signInModalOpen} close={closeModal} header="Sing In"></SignInModal>
+    </>
   )
 }
 
