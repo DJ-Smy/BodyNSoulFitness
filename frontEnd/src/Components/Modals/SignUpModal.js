@@ -13,8 +13,18 @@ function SignUpModal(props) {
               &times;
             </button>
           </header>
-          <main>Sign In</main>
+          <main>Sign Up</main>
           <footer>
+            <div className="mb-3">
+              <label>Email address</label>
+              <input type="email" className="form-control" placeholder="Enter Email" />
+            </div>
+
+            <div className="mb-3">
+              <label>Password</label>
+              <input type="password" className="form-control" placeholder="Password" />
+            </div>
+
             <button className="close" onClick={close}>
               close
             </button>
