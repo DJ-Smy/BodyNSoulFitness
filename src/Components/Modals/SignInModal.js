@@ -1,11 +1,10 @@
-import React from 'react';
-import './Modal.css';
+import React from "react";
+import "./Modal.css";
 
 function SignUpModal(props) {
-
-    const { open, close, header } = props;
+  const { open, close, header } = props;
   return (
-    <div className={open ? 'openModal modal' : 'modal'}>
+    <div className={open ? "openModal modal" : "modal"}>
       {open ? (
         <section>
           <header>
@@ -23,7 +22,7 @@ function SignUpModal(props) {
         </section>
       ) : null}
     </div>
-  )
+  );
 }
 
-export default SignUpModal
+export default SignUpModal;
