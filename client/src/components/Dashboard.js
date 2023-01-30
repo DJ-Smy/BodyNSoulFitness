@@ -6,6 +6,8 @@ import Box from '@mui/material/Box';
 
 const Dashboard = () => {
 
+  
+
   const [data, setData] = useState(false);
 
   const { logindata, setLoginData } = useContext(LoginContext);
@@ -25,16 +27,20 @@ const Dashboard = () => {
     });
       //가져온 response data를 json화 하여 data에 저장합니다.
       const data = await res.json();
-      //console.log(data);
+      //console.log(data.ValidUserOne.role);
 
-      if(data.status === 401 || !data){
+      if(data.status === 201 && data.ValidUserOne.role === 0){
         // => localStorage의 usersdatatoken을 가져와 확인하기 떄문에 만약 그것을 지우면 에러가 됨. 
-        history("*");
-      }else{
+        setLoginData(data)
+        history("/admin");
+      }else if(data.status === 201 && data.ValidUserOne.role === 1){
         //즉 이곳은 user 가 웹사이트에 로그인 되어있고 뿐만아니라 verify 됬다는것을 의미 하여 setLoginData를 사용하여 현재의 logindata <- data를 집어넣어 줍니다.
       //console.log("user verify");
             setLoginData(data)
             history("/dash");
+      }else{
+      
+            history("/*");
       }
   }
 
@@ -42,8 +48,10 @@ const Dashboard = () => {
     setTimeout(() => {
         DashboardValid();
         setData(true)
-    }, 2000)
+    }, )
 }, [])
+
+  
 
   return (
     <>
@@ -52,6 +60,9 @@ const Dashboard = () => {
             <img src="./man.png" style={{ width: "200px", marginTop: 20 }} alt="" />
             <h1>User Email:{logindata ? logindata.ValidUserOne.email : ""}</h1>
             <h1>User Name:{logindata ? logindata.ValidUserOne.fname : ""}</h1>
+            <button onClick={()=>{
+              history('/appointment')
+            }}>Appointment</button>
         </div> : <Box sx={{ display: 'flex', justifyContent: "center", alignItems: "center", height: "100vh" }}>
             Loading... &nbsp;
             <CircularProgress />

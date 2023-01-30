@@ -12,7 +12,6 @@ const Home = () => {
         <p className='header-btns'> 
             <a href='/contact' className='header-btn'>Contact Us</a>
         </p>
-
     </div>
   )
 }

@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import Context from './components/ContextProvider/Context';
 import {BrowserRouter} from 'react-router-dom';
+import "react-datetime/css/react-datetime.css";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

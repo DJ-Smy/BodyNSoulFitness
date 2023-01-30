@@ -6,6 +6,7 @@ const router = require("./routes/router");
 const cors = require("cors");
 const cookieParser = require("cookie-parser")
 const port = process.env.PORT;
+const router1 = require("./Controllers/CalendarController")
 
 
 
@@ -18,6 +19,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 app.use(router);
+app.use(router1)
+
 
 
 

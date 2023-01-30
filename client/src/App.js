@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Dashboard from "./components/Dashboard";
+import Adminboard from "./components/Adminboard";
 import Error from "./components/Error";
 import PasswordReset from "./components/PasswordReset";
 import ForgotPassword from "./components/ForgotPassword";
@@ -13,6 +14,10 @@ import { LoginContext } from "./components/ContextProvider/Context";
 import Home from './components/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Contact } from './components/Contact';
+import Appointment from './components/Appointment/Appointment';
+import Modal from 'react-modal';
+
+Modal.setAppElement('#root');
 
 
 function App() {
@@ -25,7 +30,7 @@ function App() {
   const history = useNavigate();
 
   const DashboardValid = async () => {
-    let token = localStorage.getItem("usersdatatoken");
+    let token = sessionStorage.getItem("usersdatatoken");
 
     const res = await fetch("/validuser", {
       method: "GET",
@@ -40,9 +45,8 @@ function App() {
     if (data.status === 401 || !data) {
       console.log("user not valid");
     } else {
-      console.log("user verify");
+      //console.log("user verify");
       setLoginData(data)
-      history("/dash");
     }
   }
 
@@ -66,6 +70,8 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/dash" element={<Dashboard />} />
+              <Route path="/admin" element={<Adminboard />} />
+              <Route path="/appointment" element={<Appointment />} />
               <Route path="/password-reset" element={<PasswordReset />} />
               <Route path="/forgotpassword/:id/:token" element={<ForgotPassword />} />
               <Route path="/contact" element={<Contact />} />

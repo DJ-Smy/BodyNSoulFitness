@@ -103,8 +103,7 @@ router.post("/login", async (req, res) => {
     }
 });
 
-    /// user valid (validuser에서 확인을 거친후 그것의 데이터를 받아오는것이다.)
-    // user valid
+    // user valid (validuser에서 확인을 거친후 그것의 데이터를 받아오는것이다.)
 router.get("/validuser",authenticate,async(req,res)=>{
     try {
         const ValidUserOne = await userdb.findOne({_id:req.userId});
@@ -245,6 +244,5 @@ router.post("/:id/:token", async(req, res) => {
         res.status(401).json({status:401, error});
     }
 })
-
 
 module.exports = router;

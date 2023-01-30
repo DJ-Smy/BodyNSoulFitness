@@ -9,9 +9,6 @@ export const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-
-
-
     emailjs.sendForm('service_y0qz4hz', 'template_lx5uvbi', form.current, 'BVWfFDaP9b9-yxmSp')
       .then((result) => {
           console.log(result.text);

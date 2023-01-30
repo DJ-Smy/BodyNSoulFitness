@@ -9,7 +9,7 @@ import { useNavigate , NavLink } from "react-router-dom"
 const Header = () => {
 
   const { logindata, setLoginData } = useContext(LoginContext);
-  //console.log(logindata);
+  console.log(logindata.ValidUserOne);
 
   const history = useNavigate();
 
@@ -40,7 +40,7 @@ const Header = () => {
         });
 
         const data = await res.json();
-        console.log(data);
+        //console.log(data);
 
         if (data.status === 201) {
             console.log("use logout");
@@ -62,6 +62,10 @@ const Header = () => {
 
     const goHome = () => {
       history('/');
+    }
+
+    const goAppointment = () => {
+      history('/appointment');
     }
 
 
@@ -94,6 +98,10 @@ const Header = () => {
                               <MenuItem onClick={()=>{
                                 goDash()
                                 handleClose()}}>Profile</MenuItem>
+                                <MenuItem onClick={()=>{
+                                goAppointment()
+                                handleClose()
+                                }}>Appoinment</MenuItem>    
                               <MenuItem onClick={()=>{
                                 logoutuser()
                                 handleClose()}}>Logout</MenuItem>
@@ -104,8 +112,9 @@ const Header = () => {
                               <MenuItem onClick={()=>{
                                 goError()
                                 handleClose()
-                                }}>Profile</MenuItem>
+                                }}>Please Log In</MenuItem>
                             </>
+                            
                           )
                         }
 
