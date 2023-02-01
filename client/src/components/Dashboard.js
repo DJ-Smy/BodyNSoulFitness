@@ -29,11 +29,11 @@ const Dashboard = () => {
       const data = await res.json();
       //console.log(data.ValidUserOne.role);
 
-      if(data.status === 201 && data.ValidUserOne.role === 0){
+      if(data.ValidUserOne.role === 0){
         // => localStorage의 usersdatatoken을 가져와 확인하기 떄문에 만약 그것을 지우면 에러가 됨. 
         setLoginData(data)
         history("/admin");
-      }else if(data.status === 201 && data.ValidUserOne.role === 1){
+      }else if(data.ValidUserOne.role === 1){
         //즉 이곳은 user 가 웹사이트에 로그인 되어있고 뿐만아니라 verify 됬다는것을 의미 하여 setLoginData를 사용하여 현재의 logindata <- data를 집어넣어 줍니다.
       //console.log("user verify");
             setLoginData(data)
