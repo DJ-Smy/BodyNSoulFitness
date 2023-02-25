@@ -70,8 +70,8 @@ label{
 
 }
 .primary-button{
-  background-color: #005555 !important;
-  border-color: #005555 !important;
+  background-color: #CFC3FF !important;
+  border-color: #CFC3FF !important;
   height: 40px !important;
   width: 100% !important;
   color: white !important;
@@ -109,7 +109,7 @@ p{
    display: flex;
    align-items: center;
    justify-content: center;
-   background-color: #005555;
+   background-color: #9178f1
 }
 .authentication-form{
   width: 400px;

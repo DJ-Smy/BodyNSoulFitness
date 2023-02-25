@@ -16,12 +16,7 @@ import UserProfile from "./pages/User/UserProfile";
 import BookAppoint from "./pages/BookAppointment"
 import Appointments from './pages/Appointments';
 import TrainerAppointments from './pages/Trainer/TrainerAppointments'
-import Main from '../src/components/views/Main'
-import About from '../src/components/views/About'
-import Contact from '../src/components/views/Contact'
-import Memberships from '../src/components/views/Membership'
-import Feature from '../src/components/views/feature/Feature'
-
+import LandingPage from './components/landing/LadingPage';
 
 
 function App() {
@@ -41,39 +36,7 @@ function App() {
           path="/"
           element={
             <PublicRoute>
-              <Main />
-            </PublicRoute>
-          }
-        />
-        <Route
-          path="/About"
-          element={
-            <PublicRoute>
-              <About />
-            </PublicRoute>
-          }
-        />
-        <Route
-          path="/Contact"
-          element={
-            <PublicRoute>
-              <Contact />
-            </PublicRoute>
-          }
-        />
-        <Route
-          path="/Memberships"
-          element={
-            <PublicRoute>
-              <Memberships />
-            </PublicRoute>
-          }
-        />
-          <Route
-          path="/Feature"
-          element={
-            <PublicRoute>
-              <Feature />
+              <LandingPage />
             </PublicRoute>
           }
         />
