@@ -6,6 +6,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const authMiddleware = require('../middleware/authMiddleware');
 const Appointment = require("../models/appointmentModel");
+const Chat = require("../models/chatModel");
 const moment = require("moment");
 
 
@@ -211,7 +212,7 @@ router.post("/book-appointment", authMiddleware, async (req, res) => {
     req.body.time = moment(req.body.time, "HH:mm").toISOString();
     const newAppointment = new Appointment(req.body);
     await newAppointment.save();
-    //pushing notification to doctor based on his userid
+    //pushing notification to trainer based on his userid
     const user = await User.findOne({ _id: req.body.trainerInfo.userId });
     user.unseenNotifications.push({
       type: "new-appointment-request",
@@ -268,6 +269,33 @@ router.post("/check-booking-availability", authMiddleware, async (req, res) => {
   }
 });
 
+router.post("/make-chat", authMiddleware, async (req, res) => {
+  try {
+    req.body.status = "pending";
+    const newChat = new Chat(req.body);
+    await newChat.save();
+    //pushing notification to trainer based on his userid
+    const user = await User.findOne({ _id: req.body.trainerInfo.userId });
+    user.unseenNotifications.push({
+      type: "new-chat-request",
+      message: `A new chat request has been made by ${req.body.userInfo.name}`,
+      onClickPath: "/trainer/chatLists",
+    });
+    await user.save();
+    res.status(200).send({
+      message: "Chat made successfully",
+      success: true,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      message: "Error chat making",
+      success: false,
+      error,
+    });
+  }
+});
+
 router.get("/get-appointment-by-user-id", authMiddleware, async (req, res) => {
   try {
     const appointments = await Appointment.find({ userId : req.body.userId });
@@ -280,6 +308,24 @@ router.get("/get-appointment-by-user-id", authMiddleware, async (req, res) => {
     console.log(error);
     res.status(500).send({
       message: "Error fetching appointments",
+      success: false,
+      error,
+    });
+  }
+});
+
+router.get("/get-chat-by-user-id", authMiddleware, async (req, res) => {
+  try {
+    const appointments = await Chat.find({ userId : req.body.userId });
+    res.status(200).send({
+      message: "Chat fetched successfully",
+      success: true,
+      data: appointments,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      message: "Error fetching Chat",
       success: false,
       error,
     });

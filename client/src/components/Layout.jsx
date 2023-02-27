@@ -33,6 +33,11 @@ function Layout({ children }) {
       path: `/user/profile/${user?._id}`,
       icon: "ri-user-line",
     },
+    {
+      name: "Chat",
+      path: `/chatLists`,
+      icon: "ri-chat-new-line",
+    },
   ];
 
   const adminMenu = [
@@ -69,6 +74,17 @@ function Layout({ children }) {
       path: `/trainer/profile/${user?._id}`,
       icon: "ri-user-line",
     },
+    {
+      name: "Users",
+      path: "/trainer/userslist",
+      icon: "ri-file-user-fill",
+    },
+    {
+      name: "Chat",
+      path: `/trainer/chatLists`,
+      icon: "ri-chat-new-line",
+    },
+
   ];
 
   const menuToBeRendered = user?.isAdmin ? adminMenu : user?.isTrainer ? trainerMenu : userMenu;

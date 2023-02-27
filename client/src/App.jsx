@@ -15,8 +15,11 @@ import TrainerProfile from "./pages/Trainer/TrainerProfile";
 import UserProfile from "./pages/User/UserProfile";
 import BookAppoint from "./pages/BookAppointment"
 import Appointments from './pages/Appointments';
+import UserList from "./pages/Trainer/UserList"
 import TrainerAppointments from './pages/Trainer/TrainerAppointments'
-import LandingPage from './components/landing/LadingPage';
+import ChatLists from './pages/ChatList';
+import TrainerChat from './pages/Trainer/TrainerChat';
+
 
 
 function App() {
@@ -36,7 +39,7 @@ function App() {
           path="/"
           element={
             <PublicRoute>
-              <LandingPage />
+              <Login />
             </PublicRoute>
           }
         />
@@ -96,6 +99,14 @@ function App() {
             </ProtectedRoute>
           }
         />
+          <Route
+          path="/trainer/userslist"
+          element={
+            <ProtectedRoute>
+              <UserList />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="/trainer/profile/:userId"
           element={
@@ -133,6 +144,22 @@ function App() {
           element={
             <ProtectedRoute>
               <TrainerAppointments />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/chatLists"
+          element={
+            <ProtectedRoute>
+              <ChatLists />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/trainer/chatLists"
+          element={
+            <ProtectedRoute>
+              <TrainerChat />
             </ProtectedRoute>
           }
         />

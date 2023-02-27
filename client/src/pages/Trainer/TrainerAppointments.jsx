@@ -7,7 +7,7 @@ import axios from "axios";
 import { Table } from "antd";
 import moment from "moment";
 
-function DoctorAppointments() {
+function TrainerAppointments() {
   const [appointments, setAppointments] = useState([]);
   const dispatch = useDispatch();
   const getAppointmentsData = async () => {
@@ -48,7 +48,7 @@ function DoctorAppointments() {
         getAppointmentsData();
       }
     } catch (error) {
-      toast.error("Error changing doctor account status");
+      toast.error("Error changing trainer account status");
       dispatch(hideLoading());
     }
   };
@@ -118,4 +118,4 @@ function DoctorAppointments() {
   );
 }
 
-export default DoctorAppointments;
+export default TrainerAppointments;

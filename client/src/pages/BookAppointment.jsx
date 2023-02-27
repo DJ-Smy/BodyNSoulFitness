@@ -12,6 +12,7 @@ function BookAppointment() {
   const [isAvailable, setIsAvailable] = useState(false);
   const [date, setDate] = useState();
   const [time, setTime] = useState();
+  const [contents, setContents] = useState("");
   const { user } = useSelector((state) => state.user);
   const [trainer, setTrainer] = useState(null);
   const params = useParams();
@@ -102,6 +103,35 @@ function BookAppointment() {
       }
   }
 
+  const makeChat = async() => {
+    try {
+        dispatch(showLoading());
+        const response = await axios.post(
+          "/api/user/make-chat",
+          {
+            trainerId: params.trainerId,
+            userId: user._id,
+            trainerInfo: trainer,
+            userInfo: user,
+            contents: contents
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
+        dispatch(hideLoading());
+        if (response.data.success) {
+         toast.success(response.data.message);
+         navigate('/chatList')
+        }
+      } catch (error) {
+        toast.error("Error chat making");
+        dispatch(hideLoading());
+      }
+  }
+
   useEffect(() => {
     getTrainerData();
   }, []);
@@ -109,19 +139,20 @@ function BookAppointment() {
   return (
     <Layout>
       {trainer && (
+        <>
         <div>
           <h1 className="page-title">
             {trainer.firstName} {trainer.lastName}
           </h1>
           <hr />
-          <Row gutter={20} className="mt-5" align="middle">
+          <Row gutter={20} className="mt-4" align="middle">
 
             <Col span={8} sm={24} xs={24} lg={8}>
               <img
                 src="https://thumbs.dreamstime.com/b/finger-press-book-now-button-booking-reservation-icon-online-149789867.jpg"
                 alt=""
-                width="100%"
-                height='400'
+                width="80%"
+                height='300'
               />
             </Col>
             <Col span={8} sm={24} xs={24} lg={8}>
@@ -161,7 +192,7 @@ function BookAppointment() {
                   }}
                 />
               {!isAvailable &&   <Button
-                  className="primary-button mt-3 full-width-button"
+                  className="primary-button mt-2 full-width-button"
                   onClick={checkAvailability}
                 >
                   Check Availability
@@ -169,7 +200,7 @@ function BookAppointment() {
 
                 {isAvailable && (
                   <Button
-                    className="primary-button mt-3 full-width-button"
+                    className="primary-button mt-2 full-width-button"
                     onClick={bookNow}
                   >
                     Book Now
@@ -180,6 +211,54 @@ function BookAppointment() {
            
           </Row>
         </div>
+        <div>
+         
+          <hr />
+          <Row gutter={20} className="mt-4" align="middle">
+
+            <Col span={8} sm={24} xs={24} lg={8}>
+              <img
+                src="https://thumbs.dreamstime.com/b/finger-press-book-now-button-booking-reservation-icon-online-149789867.jpg"
+                alt=""
+                width="80%"
+                height='300'
+              />
+            </Col>
+            <Col span={8} sm={24} xs={24} lg={8}>
+              <h1 className="normal-text">
+                <b>Timings :</b> {trainer.timings[0]} - {trainer.timings[1]}
+              </h1>
+              <p>
+                <b>Phone Number : </b>
+                {trainer.phoneNumber}
+              </p>
+              <p>
+                <b>Address : </b>
+                {trainer.address}
+              </p>
+              <p>
+                <b>Fee per Visit : </b>
+                {trainer.feePerConsultation}
+              </p>
+              <p>
+                <b>Email : </b>
+                {trainer.email}
+              </p>
+              <div className="d-flex flex-column pt-2 mt-2">
+                <textarea className='mt-3' onChange={(e) => {setContents(e.target.value)}} />
+              <Button
+                    className="primary-button mt-3 full-width-button"
+                    onClick={makeChat}
+                  >
+                    Chat Now
+                  </Button>
+                
+              </div>
+            </Col>
+           
+          </Row>
+        </div>
+</>
       )}
     </Layout>
   );
