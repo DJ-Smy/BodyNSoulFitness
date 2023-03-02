@@ -140,7 +140,7 @@ router.post("/update-trainer-profile", authMiddleware, async(req, res) => {
       unseenNotifications.push({
         type: "chat-status-changed",
         message: `Your chat status has been ${status}`,
-        onClickPath: "/trainer/chatLists",
+        onClickPath: "/chatLists",
       });
   
       await user.save();

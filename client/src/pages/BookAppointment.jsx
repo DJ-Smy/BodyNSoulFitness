@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 import moment from "moment";
 import { Button, Col, DatePicker, Row, TimePicker } from "antd";
+import chatImage from "../assets/chat.jpg"
 
 function BookAppointment() {
   const [isAvailable, setIsAvailable] = useState(false);
@@ -124,7 +125,7 @@ function BookAppointment() {
         dispatch(hideLoading());
         if (response.data.success) {
          toast.success(response.data.message);
-         navigate('/chatList')
+         navigate('/chatLists')
         }
       } catch (error) {
         toast.error("Error chat making");
@@ -218,7 +219,7 @@ function BookAppointment() {
 
             <Col span={8} sm={24} xs={24} lg={8}>
               <img
-                src="https://thumbs.dreamstime.com/b/finger-press-book-now-button-booking-reservation-icon-online-149789867.jpg"
+                src={chatImage}
                 alt=""
                 width="80%"
                 height='300'
