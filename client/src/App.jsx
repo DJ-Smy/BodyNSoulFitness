@@ -19,6 +19,7 @@ import UserList from "./pages/Trainer/UserList"
 import TrainerAppointments from './pages/Trainer/TrainerAppointments'
 import ChatLists from './pages/ChatList';
 import TrainerChat from './pages/Trainer/TrainerChat';
+import Membership from './pages/Membership';
 
 
 
@@ -160,6 +161,14 @@ function App() {
           element={
             <ProtectedRoute>
               <TrainerChat />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/membership"
+          element={
+            <ProtectedRoute>
+              <Membership />
             </ProtectedRoute>
           }
         />
