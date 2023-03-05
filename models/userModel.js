@@ -29,6 +29,7 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
+    
     seenNotifications:{
         type: Array,
         default: [],
@@ -36,6 +37,10 @@ const userSchema = new mongoose.Schema({
     unseenNotifications: {
         type: Array,
         default: [],
+    },
+    status: {
+        type: String,
+        default: "approved",
     }
 },{
     timestamps: true,

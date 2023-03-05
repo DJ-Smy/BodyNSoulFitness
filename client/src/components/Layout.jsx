@@ -81,7 +81,7 @@ function Layout({ children }) {
     },
     {
       name: "Chat",
-      path: `/trainer/chatLists`,
+      path: `/trainer/chatLists/${user?._id}`,
       icon: "ri-chat-new-line",
     },
 

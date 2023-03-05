@@ -43,6 +43,11 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const user = await User.findOne({ email: req.body.email });
+    if (user.status === "blocked") {
+      return res
+      .status(200)
+      .send({ message: "User account already blocked please contact the trainer", success: false });
+    }
     if (!user) {
       return res
         .status(200)
@@ -279,8 +284,9 @@ router.post("/make-chat", authMiddleware, async (req, res) => {
     user.unseenNotifications.push({
       type: "new-chat-request",
       message: `A new chat request has been made by ${req.body.userInfo.name}`,
-      onClickPath: "/trainer/chatLists",
+      onClickPath: `/trainer/chatLists/${req.body.trainerInfo.userId}`,
     });
+    
     await user.save();
     res.status(200).send({
       message: "Chat made successfully",

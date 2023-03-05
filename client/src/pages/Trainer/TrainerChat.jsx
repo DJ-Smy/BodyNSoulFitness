@@ -4,8 +4,7 @@ import Layout from "../../components/Layout";
 import { showLoading, hideLoading } from "../../redux/alertsSlice";
 import { toast } from "react-hot-toast";
 import axios from "axios";
-import { Table } from "antd";
-import moment from "moment";
+import { Table, Button } from "antd";
 
 function TrainerChats() {
   const [chats, setChats] = useState([]);
@@ -85,6 +84,7 @@ function TrainerChats() {
       ),
     },
   ];
+
   useEffect(() => {
     getChatData();
   }, []);

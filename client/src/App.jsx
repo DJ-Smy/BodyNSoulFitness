@@ -156,7 +156,7 @@ function App() {
           }
         />
         <Route
-          path="/trainer/chatLists"
+          path="/trainer/chatLists/:trainerId"
           element={
             <ProtectedRoute>
               <TrainerChat />

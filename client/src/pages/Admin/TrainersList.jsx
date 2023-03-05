@@ -29,11 +29,12 @@ function TrainersList() {
   };
 
   const changeTrainerStatus = async (record, status) => {
+    console.log(record.userId);
     try {
       dispatch(showLoading());
       const response = await axios.post(
         "/api/admin/change-trainer-status",
-        { trainerId: record._id, userId: record.userId, status: status },
+        { trainerId: record._id, userId: record.userId, tUserId: record.userId, status: status },
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -87,7 +88,7 @@ function TrainersList() {
       dataIndex: "actions",
       render: (text, record) => (
         <div className="d-flex">
-          {record.status === "pending" && (
+          {record.status === "pending"  && (
             <h1
               className="anchor"
               onClick={() => changeTrainerStatus(record, "approved")}
@@ -101,6 +102,14 @@ function TrainersList() {
               onClick={() => changeTrainerStatus(record, "blocked")}
             >
               Block
+            </h1>
+          )}
+          {record.status === "blocked" && (
+            <h1
+              className="anchor"
+              onClick={() => changeTrainerStatus(record, "approved")}
+            >
+              Approve
             </h1>
           )}
         </div>

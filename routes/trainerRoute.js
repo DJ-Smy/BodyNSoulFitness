@@ -159,6 +159,7 @@ router.post("/update-trainer-profile", authMiddleware, async(req, res) => {
     }
   });
 
+
   router.get("/get-all-users", authMiddleware, async (req, res) => {
     try {
       const users = await User.find({ isTrainer: false, isAdmin: false });
@@ -176,6 +177,34 @@ router.post("/update-trainer-profile", authMiddleware, async(req, res) => {
       });
     }
   });
+
+  router.post("/change-user-status", authMiddleware, async (req, res) => {
+    try {
+      const { trainerId, status, userId } = req.body;
+      
+      const user = await User.findByIdAndUpdate(trainerId, {
+        status,
+      });
+      await user.save();
+      
+  
+      res.status(200).send({
+        message: "User status updated successfully",
+        success: true,
+      });
+  
+    } catch (error) {
+      console.log(error);
+      res.status(500).send({
+        message: "Error User status update",
+        success: false,
+        error,
+      });
+    }
+  });
+  
+
+
 
 
 module.exports = router;
