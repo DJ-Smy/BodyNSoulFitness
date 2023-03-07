@@ -15,11 +15,12 @@ import TrainerProfile from "./pages/Trainer/TrainerProfile";
 import UserProfile from "./pages/User/UserProfile";
 import BookAppoint from "./pages/BookAppointment"
 import Appointments from './pages/Appointments';
-import UserList from "./pages/Trainer/UserList"
 import TrainerAppointments from './pages/Trainer/TrainerAppointments'
+import Landing from './landing/Landing';
 import ChatLists from './pages/ChatList';
 import TrainerChat from './pages/Trainer/TrainerChat';
-
+import UserList from "./pages/Trainer/UserList"
+import './App.css';
 
 
 function App() {
@@ -34,16 +35,17 @@ function App() {
         </div>
       )}
       <Toaster position="top-center" reverseOrder={false} />
+      
       <Routes>
         <Route
           path="/"
           element={
             <PublicRoute>
-              <Login />
+              <Landing />
             </PublicRoute>
           }
         />
-        <Route
+      <Route
           path="/login"
           element={
             <PublicRoute>

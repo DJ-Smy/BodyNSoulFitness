@@ -9,6 +9,7 @@ import moment from "moment";
 import { Button, Col, DatePicker, Row, TimePicker } from "antd";
 import chatImage from "../assets/chat.jpg"
 
+
 function BookAppointment() {
   const [isAvailable, setIsAvailable] = useState(false);
   const [date, setDate] = useState();

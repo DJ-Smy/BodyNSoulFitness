@@ -8,7 +8,10 @@ import { Table, Button } from "antd";
 
 function TrainerChats() {
   const [chats, setChats] = useState([]);
+  const [data, setData] = useState([]);
+  const [contents, setContents] = useState("");
   const dispatch = useDispatch();
+  const [replyScreen, setReplyScreen] = useState(false);
   const getChatData = async () => {
     try {
       dispatch(showLoading());
@@ -28,6 +31,11 @@ function TrainerChats() {
       dispatch(hideLoading());
     }
   };
+
+  const onClick = (record) => {
+    setData(record);
+    setReplyScreen(true);
+  }
 
   const changeChatStatus = async (record, status) => {
     try {
@@ -51,6 +59,37 @@ function TrainerChats() {
       dispatch(hideLoading());
     }
   };
+
+  const makeReply = async() => {
+    try {
+        dispatch(showLoading());
+        const response = await axios.post(
+          "/api/trainer/make-reply",
+          {
+            trainerId: data.trainerId,
+            trainerInfo: data.trainerInfo,
+            userInfo: data.userInfo,
+            contents: contents
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
+        dispatch(hideLoading());
+        if (response.data.success) {
+         toast.success(response.data.message);
+         setReplyScreen(false);
+        }
+      } catch (error) {
+        toast.error("Error chat making");
+        dispatch(hideLoading());
+      }
+  }
+
+
+
   const columns = [
     {
       title: "Member",
@@ -80,6 +119,16 @@ function TrainerChats() {
               </h1>
             </div>
           )}
+          {record.status === "Read" && (
+            <div className="d-flex">
+              <h1
+                className="anchor px-2"
+                onClick={() => { onClick(record)}}
+              >
+                Reply
+              </h1>
+            </div>
+          )}
         </div>
       ),
     },
@@ -93,6 +142,18 @@ function TrainerChats() {
       <h1 className="page-header">Chat List</h1>
       <hr />
       <Table columns={columns} dataSource={chats} />
+      {replyScreen ? 
+      <div className="d-flex flex-column pt-5 mt-3">
+                <textarea className='mt-3' onChange={(e) => {setContents(e.target.value)}} />
+              <Button
+                    className="primary-button mt-3 full-width-button"
+                    onClick={makeReply}
+                  >
+                    Reply Now
+                  </Button>
+                
+              </div> : <></>  
+    }
     </Layout>
   );
 }

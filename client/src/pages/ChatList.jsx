@@ -4,13 +4,11 @@ import Layout from "../components/Layout";
 import { showLoading, hideLoading } from "../redux/alertsSlice";
 import axios from "axios";
 import { Button, Table } from "antd";
-import moment from 'moment';
-import { toast } from "react-hot-toast";
-import { useNavigate } from 'react-router-dom';
+
 
 function ChatLists() {
-  const [contents, setContents] = useState([]);
-  const navigate = useNavigate();
+  const [chat, setChat] = useState([]);
+  const [reply, setReply] = useState([]);
   const dispatch = useDispatch();
   const getChatData = async () => {
     try {
@@ -22,7 +20,26 @@ function ChatLists() {
       });
       dispatch(hideLoading());
       if (response.data.success) {
-        setContents(response.data.data);
+        
+        setChat(response.data.data);
+        
+      }
+    } catch (error) {
+      dispatch(hideLoading());
+    }
+  };
+
+    const getReplyData = async () => {
+    try {
+      dispatch(showLoading());
+      const response = await axios.get("/api/user/get-reply-by-user-id", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      dispatch(hideLoading());
+      if (response.data.success) {
+        setReply(response.data.data);
       }
     } catch (error) {
       dispatch(hideLoading());
@@ -51,13 +68,18 @@ function ChatLists() {
 
   useEffect(() => {
     getChatData();
+    getReplyData();
   }, []);
 
   return (
     <Layout>
       <h1 className="page-title">Chat List</h1>
       <hr />
-      <Table columns={columns} dataSource={contents} />
+      <Table columns={columns} dataSource={chat} />
+      <hr />
+      <h1 className="page-title">Reply List</h1>
+      <hr />
+      <Table columns={columns} dataSource={reply} />
     </Layout>
   );
 }

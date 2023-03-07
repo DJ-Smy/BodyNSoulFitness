@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import Layout from '../components/Layout'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -6,7 +7,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import TrainerForm from '../components/TrainerForm';
-import moment from 'moment';
+
 
 
 function ApplyTrainer() {
