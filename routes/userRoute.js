@@ -4,11 +4,11 @@ const User = require("../models/userModel");
 const Trainer = require("../models/trainerModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const authMiddleware = require('../middleware/authMiddleware');
+const authMiddleware = require("../middleware/authMiddleware");
 const Appointment = require("../models/appointmentModel");
 const Chat = require("../models/chatModel");
+const Reply = require("../models/replyModel");
 const moment = require("moment");
-
 
 router.post("/register", async (req, res) => {
   try {
@@ -44,9 +44,10 @@ router.post("/login", async (req, res) => {
   try {
     const user = await User.findOne({ email: req.body.email });
     if (user.status === "blocked") {
-      return res
-      .status(200)
-      .send({ message: "User account already blocked please contact the trainer", success: false });
+      return res.status(200).send({
+        message: "User account already blocked please contact the trainer",
+        success: false,
+      });
     }
     if (!user) {
       return res
@@ -73,46 +74,52 @@ router.post("/login", async (req, res) => {
   }
 });
 
-router.post("/get-user-info-by-id", authMiddleware, async(req, res) => {
-  
+router.post("/get-user-info-by-id", authMiddleware, async (req, res) => {
   try {
     const user = await User.findOne({ _id: req.body.userId });
     //console.log(user);
     user.password = undefined;
     if (!user) {
-      return res.status(200).send({ message: "User does not existed", success: false });
+      return res
+        .status(200)
+        .send({ message: "User does not existed", success: false });
     } else {
-      res.status(200).send({ success: true, 
-        data: user
-      })
+      res.status(200).send({ success: true, data: user });
     }
   } catch (error) {
-    res.status(500)
-    .send({ message: "Error getting user info", success: false, error: error });
+    res.status(500).send({
+      message: "Error getting user info",
+      success: false,
+      error: error,
+    });
   }
-})
+});
 
-
-router.post("/update-user-profile", authMiddleware, async(req, res) => {
+router.post("/update-user-profile", authMiddleware, async (req, res) => {
   try {
-    const user = await User.findOneAndUpdate({ _id: req.body.userId },
-      req.body);
-      console.log(req.body);
-      console.log(user);
+    const user = await User.findOneAndUpdate(
+      { _id: req.body.userId },
+      req.body
+    );
+    console.log(req.body);
+    console.log(user);
     res.status(200).send({
       success: true,
-      message: 'User profile updated successfully',
+      message: "User profile updated successfully",
       data: user,
-    })
+    });
   } catch (error) {
-    res.status(500)
-    .send({ message: "Error updating User info", success: false, error: error });
+    res.status(500).send({
+      message: "Error updating User info",
+      success: false,
+      error: error,
+    });
   }
-})
+});
 
 router.post("/apply-trainer-account", authMiddleware, async (req, res) => {
   try {
-    const newTrainer = new Trainer({...req.body, status: "pending" });
+    const newTrainer = new Trainer({ ...req.body, status: "pending" });
     await newTrainer.save();
     const adminUser = await User.findOne({ isAdmin: true });
 
@@ -120,17 +127,17 @@ router.post("/apply-trainer-account", authMiddleware, async (req, res) => {
     unseenNotifications.push({
       type: "new-trainer-request",
       message: `${newTrainer.firstName} ${newTrainer.lastName} has applied for a trainer account`,
-      onClickPath: '/admin/trainerslist',
+      onClickPath: "/admin/trainerslist",
       data: {
         trainerId: newTrainer.id,
-        name: newTrainer.firstName + " " + newTrainer.lastName
+        name: newTrainer.firstName + " " + newTrainer.lastName,
       },
-    })
+    });
     await User.findByIdAndUpdate(adminUser.id, { unseenNotifications });
     res.status(200).send({
       success: true,
-      message: "Trainer applied successfully"
-    })
+      message: "Trainer applied successfully",
+    });
   } catch (error) {
     console.log(error);
     res.status(500).send({
@@ -194,7 +201,7 @@ router.post("/delete-all-notifications", authMiddleware, async (req, res) => {
 
 router.get("/get-all-approved-trainers", authMiddleware, async (req, res) => {
   try {
-    const trainers = await Trainer.find({status: "approved"});
+    const trainers = await Trainer.find({ status: "approved" });
     res.status(200).send({
       message: "Trainers fetched successfully",
       success: true,
@@ -242,7 +249,7 @@ router.post("/book-appointment", authMiddleware, async (req, res) => {
 router.post("/check-booking-availability", authMiddleware, async (req, res) => {
   try {
     const date = moment(req.body.date, "YYYY-MM-DD").toISOString();
-    
+
     const fromTime = moment(req.body.time, "HH:mm")
       .subtract(1, "hours")
       .toISOString();
@@ -286,7 +293,7 @@ router.post("/make-chat", authMiddleware, async (req, res) => {
       message: `A new chat request has been made by ${req.body.userInfo.name}`,
       onClickPath: `/trainer/chatLists/${req.body.trainerInfo.userId}`,
     });
-    
+
     await user.save();
     res.status(200).send({
       message: "Chat made successfully",
@@ -304,7 +311,7 @@ router.post("/make-chat", authMiddleware, async (req, res) => {
 
 router.get("/get-appointment-by-user-id", authMiddleware, async (req, res) => {
   try {
-    const appointments = await Appointment.find({ userId : req.body.userId });
+    const appointments = await Appointment.find({ userId: req.body.userId });
     res.status(200).send({
       message: "Appointments fetched successfully",
       success: true,
@@ -322,11 +329,11 @@ router.get("/get-appointment-by-user-id", authMiddleware, async (req, res) => {
 
 router.get("/get-chat-by-user-id", authMiddleware, async (req, res) => {
   try {
-    const appointments = await Chat.find({ userId : req.body.userId });
+    const chats = await Chat.find({ userId: req.body.userId });
     res.status(200).send({
       message: "Chat fetched successfully",
       success: true,
-      data: appointments,
+      data: chats,
     });
   } catch (error) {
     console.log(error);
@@ -338,5 +345,22 @@ router.get("/get-chat-by-user-id", authMiddleware, async (req, res) => {
   }
 });
 
+router.get("/get-reply-by-user-id", authMiddleware, async (req, res) => {
+  try {
+    const reply = await Reply.find({ userId: req.body.userId });
+    res.status(200).send({
+      message: "Chat fetched successfully",
+      success: true,
+      data: reply,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      message: "Error fetching Chat",
+      success: false,
+      error,
+    });
+  }
+});
 
 module.exports = router;
