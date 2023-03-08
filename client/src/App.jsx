@@ -13,15 +13,15 @@ import UsersList from "./pages/Admin/UsersList";
 import TrainersList from "./pages/Admin/TrainersList";
 import TrainerProfile from "./pages/Trainer/TrainerProfile";
 import UserProfile from "./pages/User/UserProfile";
-import BookAppoint from "./pages/BookAppointment"
-import Appointments from './pages/Appointments';
-import TrainerAppointments from './pages/Trainer/TrainerAppointments'
-import Landing from './landing/Landing';
-import ChatLists from './pages/ChatList';
-import TrainerChat from './pages/Trainer/TrainerChat';
-import UserList from "./pages/Trainer/UserList"
-import './App.css';
-
+import BookAppoint from "./pages/BookAppointment";
+import Appointments from "./pages/Appointments";
+import TrainerAppointments from "./pages/Trainer/TrainerAppointments";
+import Landing from "./landing/Landing";
+import ChatLists from "./pages/ChatList";
+import TrainerChat from "./pages/Trainer/TrainerChat";
+import UserList from "./pages/Trainer/UserList";
+import Contact from "./components/Contact";
+import "./App.css";
 
 function App() {
   const { loading } = useSelector((state) => state.alerts);
@@ -35,7 +35,7 @@ function App() {
         </div>
       )}
       <Toaster position="top-center" reverseOrder={false} />
-      
+
       <Routes>
         <Route
           path="/"
@@ -45,7 +45,7 @@ function App() {
             </PublicRoute>
           }
         />
-      <Route
+        <Route
           path="/login"
           element={
             <PublicRoute>
@@ -101,7 +101,7 @@ function App() {
             </ProtectedRoute>
           }
         />
-          <Route
+        <Route
           path="/trainer/userslist"
           element={
             <ProtectedRoute>
@@ -125,7 +125,7 @@ function App() {
             </ProtectedRoute>
           }
         />
-      <Route
+        <Route
           path="/book-appointment/:trainerId"
           element={
             <ProtectedRoute>
@@ -162,6 +162,14 @@ function App() {
           element={
             <ProtectedRoute>
               <TrainerChat />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <ProtectedRoute>
+              <Contact />
             </ProtectedRoute>
           }
         />
