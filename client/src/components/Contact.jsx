@@ -32,8 +32,6 @@ const Contact = () => {
         <textarea name="message" />
         <label>Comment wow</label>
         <input type="text" name="comment" />
-        <label>Test</label>
-        <input type="text" name="test" />
         <input type="submit" value="Send" />
       </form>
     </StyledContactForm>
