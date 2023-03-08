@@ -30,8 +30,10 @@ const Contact = () => {
         <input type="email" name="user_email" />
         <label>Message</label>
         <textarea name="message" />
-        <label>Comment</label>
+        <label>Comment wow</label>
         <input type="text" name="comment" />
+        <label>Test</label>
+        <input type="text" name="test" />
         <input type="submit" value="Send" />
       </form>
     </StyledContactForm>
