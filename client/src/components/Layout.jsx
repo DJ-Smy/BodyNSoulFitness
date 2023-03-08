@@ -1,4 +1,4 @@
-import { Badge } from 'antd';
+import { Badge } from "antd";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -36,6 +36,11 @@ function Layout({ children }) {
     {
       name: "Chat",
       path: `/chatLists`,
+      icon: "ri-chat-new-line",
+    },
+    {
+      name: "Contact",
+      path: `/contact`,
       icon: "ri-chat-new-line",
     },
   ];
@@ -84,7 +89,6 @@ function Layout({ children }) {
       path: `/trainer/chatLists/${user?._id}`,
       icon: "ri-chat-new-line",
     },
-
   ];
 
   const menuToBeRendered = user?.isAdmin ? adminMenu : user?.isTrainer ? trainerMenu : userMenu;
@@ -102,11 +106,7 @@ function Layout({ children }) {
             {menuToBeRendered.map((menu) => {
               const isActive = location.pathname === menu.path;
               return (
-                <div
-                  className={`d-flex menu-item ${
-                    isActive && "active-menu-item"
-                  }`}
-                >
+                <div className={`d-flex menu-item ${isActive && "active-menu-item"}`}>
                   <i className={menu.icon}></i>
                   {!collapsed && <Link to={menu.path}>{menu.name}</Link>}
                 </div>
@@ -127,20 +127,13 @@ function Layout({ children }) {
         <div className="content">
           <div className="header">
             {collapsed ? (
-              <i
-                className="ri-menu-2-fill header-action-icon"
-                onClick={() => setCollapsed(false)}
-              ></i>
+              <i className="ri-menu-2-fill header-action-icon" onClick={() => setCollapsed(false)}></i>
             ) : (
-              <i
-                className="ri-close-fill header-action-icon"
-                onClick={() => setCollapsed(true)}
-              ></i>
+              <i className="ri-close-fill header-action-icon" onClick={() => setCollapsed(true)}></i>
             )}
             <div className="d-flex align-items-center px-3">
-              <Badge count={user?.unseenNotifications.length} onClick={() => navigate('/notifications')}>
-              <i className="ri-notification-line header-action-icon"></i>
-                
+              <Badge count={user?.unseenNotifications.length} onClick={() => navigate("/notifications")}>
+                <i className="ri-notification-line header-action-icon"></i>
               </Badge>
               <Link className="anchor mx-4" to="/home">
                 {user?.name}
