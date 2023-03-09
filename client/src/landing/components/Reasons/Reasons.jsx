@@ -16,7 +16,7 @@ export const Reasons = () => {
             <img src={image4} alt="image" />
         </div>
         <div className="right-r">
-          <span>some reasons</span>
+          <span >some reasons</span>
           <div>
             <span className='stroke-text'>Why</span>
             <span> choose us?</span>

@@ -1,5 +1,13 @@
-.programs-header {
-  font-size: 3.8rem;
+.plans-header {
+  display: flex;
+  gap: 5rem;
+  font-weight: bold;
+  font-size: 3.5rem;
+  justify-content: center;
+  color: white;
+  text-transform: uppercase;
+  font-style: italic;
+  z-index: 2;
 }
 
 .plans-container {
@@ -16,6 +24,7 @@
   align-items: center;
   justify-content: center;
   gap: 5rem;
+  z-index: 1;
 }
 
 .plan {
@@ -78,4 +87,36 @@
 
 .feature > img {
   width: 1rem;
+}
+
+.plans-blur-1 {
+  width: 32rem;
+  height: 30rem;
+  top: 6rem;
+  left: 0rem;
+}
+
+.plans-blur-2 {
+  width: 32rem;
+  height: 30rem;
+  top: 10rem;
+  right: 0rem;
+}
+
+@media screen and (max-width: 768px) {
+  .plans-header {
+    flex-direction: column;
+    gap: 1;
+    font-size: x-large;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .plans {
+    flex-direction: column;
+  }
+  .plans > :nth-child(2) {
+    transform: none;
+  }
 }

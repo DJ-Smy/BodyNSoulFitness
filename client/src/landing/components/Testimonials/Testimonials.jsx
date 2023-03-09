@@ -3,21 +3,27 @@ import './testimonials.css'
 import {testimonialsData} from '../../data/testimonialsData'
 import leftArrow from '../../assets/leftArrow.png'
 import rightArrow from '../../assets/rightArrow.png'
+import {motion} from 'framer-motion'
 
 function Testimonials() {
+    const transition = { type: "spring", duration: 3}
     const [selected, setSelected] = useState(0);
     const tLength = testimonialsData.length;
-
-
   return (
     <div className="Testimonials">
         <div className="left-t">
-            <span style={{fontSize: '2rem'}}>Testimonials</span>
-            <span className='stroke-text' style={{fontSize: '3rem'}}>What they </span>
-            <span style={{fontSize: '3rem'}}>say about us</span>
-            <span>
+            <span>Testimonials</span>
+            <span className='stroke-text' >What they </span>
+            <span>say about us</span>
+            <motion.span
+            key={selected}
+            initial={{opacity: 0, x: -100}}
+            animate={{opacity: 1, x: 0}}
+            exit={{opacity: 1, x: 100}}
+            transition={{...transition, duration:4}}
+            >
                 {testimonialsData[selected].review}
-            </span>
+            </motion.span>
             <span>
                 <span style={{color: 'var(--orange'}}>
                     {testimonialsData[selected].name}
@@ -26,9 +32,24 @@ function Testimonials() {
             </span>
         </div>
         <div className="right-t">
-            <div></div>
-            <div></div>
-            <img src={testimonialsData[selected].image} alt="image" />
+            <motion.div
+            key={selected}
+            initial={{opacity: 0, x: -150}}
+            transition={{...transition, duration: 4}}
+            whileInView={{opacity: 1, x: 0}}
+            ></motion.div>
+            <motion.div
+            initial={{opacity: 0, x: 150}}
+            transition={{...transition, duration: 4}}
+            whileInView={{opacity: 1, x: 0}}
+            ></motion.div>
+            <motion.img 
+            key={selected}
+            initial={{opacity: 0, x: 100}}
+            animate={{opacity: 1, x: 0}}
+            exit={{opacity: 1, x: -100}}
+            transition={{...transition, duration:4}}
+            src={testimonialsData[selected].image} alt="image" />
             <div className="arrows">
                 <img 
                 onClick={() =>{

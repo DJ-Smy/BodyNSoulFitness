@@ -23,6 +23,7 @@
     "moment": "^2.29.3",
     "mongoose": "^6.4.0",
     "nodemon": "^2.0.16",
+    "number-counter": "^1.0.3",
     "react-bootstrap": "^2.7.2"
   }
 }

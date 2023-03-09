@@ -139,7 +139,7 @@ function TrainerChats() {
   }, []);
   return (
     <Layout>
-      <h1 className="page-header">Chat List</h1>
+      <h1 className="page-title">Chat List</h1>
       <hr />
       <Table columns={columns} dataSource={chats} />
       {replyScreen ? 

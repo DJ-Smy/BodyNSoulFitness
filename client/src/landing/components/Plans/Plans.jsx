@@ -7,10 +7,12 @@ import whiteTick from '../../assets/whiteTick.png'
 function Plans() {
   return (
     <div className="plans-container">
-        <div className="programs-header" style={{gap: '2rem'}}>
-            <span className='stroke-text'>READY TO START</span>
-            <span>YOUR JOURNEY</span>
-            <span className='stroke-text'>NOW WITHUS</span>
+        <div className="blur plans-blur-1"></div>
+        <div className="blur plans-blur-2"></div>
+        <div className="plans-header" style={{gap: '2rem'}}>
+            <span>READY TO START</span>
+            <span className='stroke-text'>YOUR JOURNEY</span>
+            <span>NOW WITHUS</span>
         </div>
 
         {/* plans card */}
