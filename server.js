@@ -17,3 +17,4 @@ app.use("/api/admin", adminRoute);
 app.use("/api/trainer", trainerRoute);
 
 app.listen(port, () => console.log(`Listening on port ${port}!`));
+// wow
