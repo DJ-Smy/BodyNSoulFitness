@@ -7,26 +7,22 @@ const User = require("../models/userModel");
 const Chat = require("../models/chatModel");
 const Reply = require("../models/replyModel");
 
-router.post(
-  "/get-trainer-info-by-user-id",
-  authMiddleware,
-  async (req, res) => {
-    try {
-      const trainer = await Trainer.findOne({ userId: req.body.userId });
-      res.status(200).send({
-        success: true,
-        message: "Trainer info fetched successfully",
-        data: trainer,
-      });
-    } catch (error) {
-      res.status(500).send({
-        message: "Error getting trainer info",
-        success: false,
-        error: error,
-      });
-    }
+router.post("/get-trainer-info-by-user-id", authMiddleware, async (req, res) => {
+  try {
+    const trainer = await Trainer.findOne({ userId: req.body.userId });
+    res.status(200).send({
+      success: true,
+      message: "Trainer info fetched successfully",
+      data: trainer,
+    });
+  } catch (error) {
+    res.status(500).send({
+      message: "Error getting trainer info",
+      success: false,
+      error: error,
+    });
   }
-);
+});
 
 router.post("/get-trainer-info-by-id", authMiddleware, async (req, res) => {
   try {
@@ -47,10 +43,7 @@ router.post("/get-trainer-info-by-id", authMiddleware, async (req, res) => {
 
 router.post("/update-trainer-profile", authMiddleware, async (req, res) => {
   try {
-    const trainer = await Trainer.findOneAndUpdate(
-      { userId: req.body.userId },
-      req.body
-    );
+    const trainer = await Trainer.findOneAndUpdate({ userId: req.body.userId }, req.body);
     res.status(200).send({
       success: true,
       message: "Trainer profile updated successfully",
@@ -65,28 +58,24 @@ router.post("/update-trainer-profile", authMiddleware, async (req, res) => {
   }
 });
 
-router.get(
-  "/get-appointments-by-trainer-id",
-  authMiddleware,
-  async (req, res) => {
-    try {
-      const trainer = await Trainer.findOne({ userId: req.body.userId });
-      const appointments = await Appointment.find({ trainerId: trainer._id });
-      res.status(200).send({
-        message: "Appointments fetched successfully",
-        success: true,
-        data: appointments,
-      });
-    } catch (error) {
-      console.log(error);
-      res.status(500).send({
-        message: "Error fetching appointments",
-        success: false,
-        error,
-      });
-    }
+router.get("/get-appointments-by-trainer-id", authMiddleware, async (req, res) => {
+  try {
+    const trainer = await Trainer.findOne({ userId: req.body.userId });
+    const appointments = await Appointment.find({ trainerId: trainer._id });
+    res.status(200).send({
+      message: "Appointments fetched successfully",
+      success: true,
+      data: appointments,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      message: "Error fetching appointments",
+      success: false,
+      error,
+    });
   }
-);
+});
 
 router.post("/change-appointment-status", authMiddleware, async (req, res) => {
   try {
