@@ -48,16 +48,16 @@ function Hero() {
             <div className="figures">
                 <div>
                     <span>
-                        <NumberCounter end={40} start={0} delay={2} preFix="+" />
+                        <NumberCounter end={40} start={0} delay={3} preFix="+" />
                     </span>
                     <span>Members joined</span>
                 </div>
                 <div>
-                    <span><NumberCounter end={15} start={0} delay={2} preFix="+" /></span>
+                    <span><NumberCounter end={15} start={0} delay={3} preFix="+" /></span>
                     <span>Training programs</span>
                 </div>
                 <div>
-                    <span><NumberCounter end={100} start={50} delay={2} preFix="+" /></span>
+                    <span><NumberCounter end={100} start={0} delay={3} preFix="+" /></span>
                     <span>Satisfied Reviews</span>
                 </div>
             </div>
