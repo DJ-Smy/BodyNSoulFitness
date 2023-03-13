@@ -1,6 +1,6 @@
 import React from "react";
 import { Toaster } from "react-hot-toast";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Switch } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home.jsx";
@@ -21,6 +21,7 @@ import ChatLists from "./pages/ChatList";
 import TrainerChat from "./pages/Trainer/TrainerChat";
 import UserList from "./pages/Trainer/UserList";
 import Contact from "./components/Contact";
+import Membership from "./pages/Membership";
 import "./App.css";
 
 function App() {
@@ -37,14 +38,7 @@ function App() {
       <Toaster position="top-center" reverseOrder={false} />
 
       <Routes>
-        <Route
-          path="/"
-          element={
-            <PublicRoute>
-              <Landing />
-            </PublicRoute>
-          }
-        />
+        <Route exact path="/" element={<Landing />} />
         <Route
           path="/login"
           element={
@@ -170,6 +164,14 @@ function App() {
           element={
             <ProtectedRoute>
               <Contact />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/membership"
+          element={
+            <ProtectedRoute>
+              <Membership />
             </ProtectedRoute>
           }
         />

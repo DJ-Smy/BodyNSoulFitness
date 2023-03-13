@@ -133,3 +133,25 @@ p {
   margin-left: -40px;
   border-bottom-left-radius: 10px;
 }
+
+.membership_row {
+  display: flex;
+}
+
+.membership_column  {
+  flex: 33%;
+  padding: 10px;
+  margin: 10px;
+}
+
+.membership_column h1{
+  align-items: center;
+  justify-content: center;
+}
+
+.paypal_button  {
+  padding-left: 20%;
+  padding-right: 20%;
+  align-items: center;
+  justify-content: center;
+}
