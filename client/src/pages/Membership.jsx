@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import {Button} from 'antd'
 import {
@@ -9,9 +9,15 @@ import {
 
 function Membership() {
 
-    const amount = "30";
     const currency = "CAD";
     const style = {"layout":"vertical"};
+
+    const [amount, setAmount] = useState();
+
+    const handleChange = (e) => {
+        setAmount(e.target.value);
+    }
+
 
     const ButtonWrapper = ({ currency, showSpinner }) => {
         // usePayPalScriptReducer can be use only inside children of PayPalScriptProviders
@@ -78,7 +84,7 @@ function Membership() {
                         <li>Free Nutrition Guide</li>
                     </ul>
                     
-                    <Button className='primary-button my-2 full-width-button' htmlType='submit' id="fee" data-value="600">Select</Button>
+                    <Button className='primary-button my-2 full-width-button' htmlType='submit' onClick={handleChange} id="fee" value="25">Select</Button>
                 </div>
                 <div className="card p-2 membership_column">
                     <h1 className="card-title">Premium</h1>
@@ -89,7 +95,7 @@ function Membership() {
                         <li>20 Shared Appointments</li>
                         <li>Free Nutrition Guide</li>
                     </ul>
-                    <Button className='primary-button my-2 full-width-button' htmlType='submit' id="fee" data-value="3000">Select</Button>
+                    <Button className='primary-button my-2 full-width-button' htmlType='submit' onClick={handleChange} id="fee" value="30">Select</Button>
                 </div>
                 <div className="card p-2 membership_column">
                     <h1 className="card-title">Pro</h1>
@@ -100,7 +106,7 @@ function Membership() {
                         <li>45 Shared Appointments</li>
                         <li>Free Nutrition Guide</li>
                     </ul>
-                    <Button className='primary-button my-2 full-width-button' htmlType='submit' id="fee" data-value="5000">Select</Button>
+                    <Button className='primary-button my-2 full-width-button' htmlType='submit' onClick={handleChange} id="fee" value="45">Select</Button>
                 </div>
             </div>
             <br></br>
