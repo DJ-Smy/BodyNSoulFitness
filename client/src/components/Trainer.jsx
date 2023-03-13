@@ -29,6 +29,7 @@ function Trainer({ trainer }) {
         {trainer.timings[0]} - {trainer.timings[1]}
       </p>
     </div>
+
   );
 }
 

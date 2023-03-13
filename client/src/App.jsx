@@ -21,6 +21,7 @@ import ChatLists from "./pages/ChatList";
 import TrainerChat from "./pages/Trainer/TrainerChat";
 import UserList from "./pages/Trainer/UserList";
 import Contact from "./components/Contact";
+import Membership from "./pages/Membership";
 import "./App.css";
 
 function App() {
@@ -163,6 +164,14 @@ function App() {
           element={
             <ProtectedRoute>
               <Contact />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/membership"
+          element={
+            <ProtectedRoute>
+              <Membership />
             </ProtectedRoute>
           }
         />

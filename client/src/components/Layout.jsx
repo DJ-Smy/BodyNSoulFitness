@@ -29,10 +29,16 @@ function Layout({ children }) {
       icon: "ri-run-line",
     },
     {
+      name: "Membership",
+      path: "/membership",
+      icon: "ri-shopping-bag-line",
+    },
+    {
       name: "Profile",
       path: `/user/profile/${user?._id}`,
       icon: "ri-user-line",
     },
+    
     {
       name: "Chat",
       path: `/chatLists`,

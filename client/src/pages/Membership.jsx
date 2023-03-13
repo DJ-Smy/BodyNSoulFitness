@@ -1,94 +1,151 @@
-import React, {useState} from 'react'
-import {Button} from 'antd'
-import Layout from "../components/Layout"
-import {PayPalScriptProvider, PayPalButtons} from "@paypal/react-paypal-js"
+import React, { useEffect, useState } from "react";
+import Layout from "../components/Layout";
+import { Button } from "antd";
+import {
+  PayPalScriptProvider,
+  PayPalButtons,
+  usePayPalScriptReducer,
+} from "@paypal/react-paypal-js";
 
 function Membership() {
+  const currency = "CAD";
+  const style = { layout: "vertical" };
 
-    const [fee, setFee] = useState();
-    const [isShown, setIsShown] = useState(false);
+  const [amount, setAmount] = useState();
 
-    const handleClick = (e) => {
-        console.log(fee + " has selected.")
-        
-        setFee(e.target.getAttribute("data-value"));
-        setIsShown(current => !current);
-    }
+  const handleChange = (e) => {
+    setAmount(e.target.value);
+  };
 
+  const ButtonWrapper = ({ currency, showSpinner }) => {
+    // usePayPalScriptReducer can be use only inside children of PayPalScriptProviders
+    // This is the main reason to wrap the PayPalButtons in a new component
+    const [{ options, isPending }, dispatch] = usePayPalScriptReducer();
 
+    useEffect(() => {
+      dispatch({
+        type: "resetOptions",
+        value: {
+          ...options,
+          currency: currency,
+        },
+      });
+    }, [currency, showSpinner]);
 
     return (
-        <Layout>
-            <h1>Membership</h1>
-            <br /><br />
-            <div className="membership_row">
-                <div className="card p-2 membership_column">
-                    <h1 className="card-title">1 MONTH</h1>
-                    <h2>$600</h2>
-                    <hr />
-                    <ul>
-                        <li>Cancel Anytime</li>
-                        <li>3 Shared Appointments</li>
-                        <li>Free Nutrition Guide</li>
-                    </ul>
-                    
-                    <Button className='primary-button my-2 full-width-button' htmlType='submit' id="fee" onClick={handleClick} data-value="600">Select</Button>
-                </div>
-                <div className="card p-2 membership_column">
-                    <h1 className="card-title">6 MONTH</h1>
-                    <h2>$3000</h2>
-                    <hr />
-                    <ul>
-                        <li>Cancel Anytime</li>
-                        <li>20 Shared Appointments</li>
-                        <li>Free Nutrition Guide</li>
-                    </ul>
-                    <Button className='primary-button my-2 full-width-button' htmlType='submit' id="fee" onClick={handleClick} data-value="3000">Select</Button>
-                </div>
-                <div className="card p-2 membership_column">
-                    <h1 className="card-title">1 YEAR</h1>
-                    <h2>$5000</h2>
-                    <hr />
-                    <ul>
-                        <li>Cancel Anytime</li>
-                        <li>45 Shared Appointments</li>
-                        <li>Free Nutrition Guide</li>
-                    </ul>
-                    <Button className='primary-button my-2 full-width-button' htmlType='submit' id="fee" onClick={handleClick} data-value="5000">Select</Button>
-                </div>
-            </div>
-            <br></br>
-            {isShown && (
-            <div className="paypal_button" >
-                <h2>Do you want to buy the membership?</h2>
-                <br></br>
-                <PayPalScriptProvider options = {{"client-id": "AchZDV8No86XQmjElRf51pvC9QwrEtDFC0BN88pnBlyjuJ7XB4qNWQV-Rj8kknca0rn8jc5S9wXlmJVz", "currency": "CAD"}}>
-                    <PayPalButtons 
-                        createOrder = {(data, actions) => {
-                            return actions.order.create(    {
-                                purchase_units: [
-                                    {
-                                        amount: {
-                                            currency: "CAD",
-                                            value: fee,
-                        
-                                        },
-                                    },
-                                ],
-                            });}
-                        }
-                        onApprove = {(data, actions) => {
-                            return actions.order.capture().then(function(details)  {
-                                alert('Transaction completed by ' + details.payer.name.given_name);
-                            });
-                        }
-                    }
-                    />
-                </PayPalScriptProvider>
-            </div>
-            )}
-        </Layout>
+      <>
+        {showSpinner && isPending && <div className="spinner" />}
+        <PayPalButtons
+          style={style}
+          disabled={false}
+          forceReRender={[amount, currency, style]}
+          fundingSource={undefined}
+          createOrder={(data, actions) => {
+            return actions.order
+              .create({
+                purchase_units: [
+                  {
+                    amount: {
+                      currency_code: currency,
+                      value: amount,
+                    },
+                  },
+                ],
+              })
+              .then((orderId) => {
+                // Your code here after create the order
+                return orderId;
+              });
+          }}
+          onApprove={function (data, actions) {
+            return actions.order.capture().then(function () {
+              alert("Transaction completed.");
+            });
+          }}
+        />
+      </>
     );
+  };
+
+  return (
+    <Layout>
+      <h1>Membership</h1>
+      <br />
+      <br />
+      <div className="membership_row">
+        <div className="card p-2 membership_column">
+          <h1 className="card-title">Basic</h1>
+          <h2>$25</h2>
+          <hr />
+          <ul>
+            <li>Cancel Anytime</li>
+            <li>3 Shared Appointments</li>
+            <li>Free Nutrition Guide</li>
+          </ul>
+
+          <Button
+            className="primary-button my-2 full-width-button"
+            htmlType="submit"
+            onClick={handleChange}
+            id="fee"
+            value="25"
+          >
+            Select
+          </Button>
+        </div>
+        <div className="card p-2 membership_column">
+          <h1 className="card-title">Premium</h1>
+          <h2>$30</h2>
+          <hr />
+          <ul>
+            <li>Cancel Anytime</li>
+            <li>20 Shared Appointments</li>
+            <li>Free Nutrition Guide</li>
+          </ul>
+          <Button
+            className="primary-button my-2 full-width-button"
+            htmlType="submit"
+            onClick={handleChange}
+            id="fee"
+            value="30"
+          >
+            Select
+          </Button>
+        </div>
+        <div className="card p-2 membership_column">
+          <h1 className="card-title">Pro</h1>
+          <h2>$45</h2>
+          <hr />
+          <ul>
+            <li>Cancel Anytime</li>
+            <li>45 Shared Appointments</li>
+            <li>Free Nutrition Guide</li>
+          </ul>
+          <Button
+            className="primary-button my-2 full-width-button"
+            htmlType="submit"
+            onClick={handleChange}
+            id="fee"
+            value="45"
+          >
+            Select
+          </Button>
+        </div>
+      </div>
+      <br></br>
+      <div style={{ maxWidth: "750px", minHeight: "200px" }}>
+        <PayPalScriptProvider
+          options={{
+            "client-id": "test",
+            components: "buttons",
+            currency: "CAD",
+          }}
+        >
+          <ButtonWrapper currency={currency} showSpinner={false} />
+        </PayPalScriptProvider>
+      </div>
+    </Layout>
+  );
 }
 
 export default Membership;
