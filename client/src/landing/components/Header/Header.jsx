@@ -20,33 +20,33 @@ function Header() {
       ) : (
         <ul className="header-menu">
           <li>
-            <Link onClick={() => setMenuOpen(false)} to="hero" span={true} smooth={true}>
+            <Link onClick={() => setMenuOpen(false)} to="hero" span={true} >
               Home
             </Link>
           </li>
           <li>
-            <Link onClick={() => setMenuOpen(false)} to="Programs" span={true} smooth={true}>
+            <Link onClick={() => setMenuOpen(false)} to="Programs" span={true}>
               Programs
             </Link>
           </li>
           <li>
-            <Link onClick={() => setMenuOpen(false)} to="Reasons" span={true} smooth={true}>
+            <Link onClick={() => setMenuOpen(false)} to="Reasons" span={true} >
               Why us
             </Link>
           </li>
           <li>
-            <Link onClick={() => setMenuOpen(false)} to="plans" span={true} smooth={true}>
+            <Link onClick={() => setMenuOpen(false)} to="plans" span={true} >
               Plans
             </Link>
           </li>
 
           <li>
-            <Link onClick={() => setMenuOpen(false)} to="Testimonials" span={true} smooth={true}>
+            <Link onClick={() => setMenuOpen(false)} to="Testimonials" span={true} >
               Testimonials
             </Link>
           </li>
           <li>
-            <Link onClick={() => setMenuOpen(false)} to="Join" span={true} smooth={true}>
+            <Link onClick={() => setMenuOpen(false)} to="Join" span={true} >
               Join
             </Link>
           </li>
