@@ -47,7 +47,7 @@ function Layout({ children }) {
     {
       name: "Contact",
       path: `/contact`,
-      icon: "ri-chat-new-line",
+      icon: "ri-mail-send-line",
     },
   ];
 
