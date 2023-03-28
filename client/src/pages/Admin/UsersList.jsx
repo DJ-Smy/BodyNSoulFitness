@@ -51,6 +51,29 @@ function UsersList() {
     }
   };
 
+  const DeleteUser = async (record) => {
+    try {
+      dispatch(showLoading());
+      const response = await axios.post(
+        "/api/admin/delete-user",
+        { trainerId: record._id, userId: record.userId },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      dispatch(hideLoading());
+      if (response.data.success) {
+        toast.success(response.data.message);
+        getUsersData();
+      }
+    } catch (error) {
+      toast.error("Error while updating trainer status");
+      dispatch(hideLoading());
+    }
+  };
+
   useEffect(() => {
     getUsersData();
   }, []);
@@ -87,12 +110,21 @@ function UsersList() {
             </h1>
           )}
             {record.status === "blocked" && (
+              <>
             <h1
               className="anchor"
               onClick={() => changeUserStatus(record, "approved")}
             >
               Approve
             </h1>
+            <h1
+              className="anchor"
+              style={{marginLeft: "10px"}}
+              onClick={() => DeleteUser(record)}
+            >
+              Delete
+            </h1>
+            </>
           )}
         </div>
       ),

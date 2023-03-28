@@ -29,11 +29,7 @@ function Appointments() {
   };
 
   const columns = [
-    {
-      title: "Id",
-      dataIndex: "_id",
-    },
-    {
+        {
       title: "Trainer",
       dataIndex: "name",
       render: (text, record) => (
