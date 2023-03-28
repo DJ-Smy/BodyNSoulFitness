@@ -5,12 +5,13 @@
 }
 
 .logo {
-  width: 10rem;
-  height: 3rem;
+  width: 13rem;
+  height: 10rem;
 }
 
 .header-menu {
-  padding-top: 1rem;
+  padding-top: 3.5rem;
+  font-size: large;
   list-style: none;
   display: flex;
   gap: 2rem;

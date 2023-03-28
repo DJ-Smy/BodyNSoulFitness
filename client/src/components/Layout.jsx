@@ -14,7 +14,7 @@ function Layout({ children }) {
 
   const userMenu = [
     {
-      name: "home",
+      name: "Home",
       path: "/home",
       icon: "ri-home-line",
     },
@@ -43,11 +43,6 @@ function Layout({ children }) {
       name: "Chat",
       path: `/chatLists`,
       icon: "ri-chat-new-line",
-    },
-    {
-      name: "Contact",
-      path: `/contact`,
-      icon: "ri-mail-send-line",
     },
   ];
 
@@ -84,11 +79,6 @@ function Layout({ children }) {
       name: "Profile",
       path: `/trainer/profile/${user?._id}`,
       icon: "ri-user-line",
-    },
-    {
-      name: "Users",
-      path: "/trainer/userslist",
-      icon: "ri-file-user-fill",
     },
     {
       name: "Chat",

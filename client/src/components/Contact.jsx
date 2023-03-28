@@ -10,7 +10,7 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm("service_9zikx8v", "template_wos7f9n", form.current, "NeESDcyDd_06p3S7D").then(
+    emailjs.sendForm("service_y0qz4hz", "template_lx5uvbi", form.current, "BVWfFDaP9b9-yxmSp").then(
       (result) => {
         console.log(result.text);
         console.log("message sent");

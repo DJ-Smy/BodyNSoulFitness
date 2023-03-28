@@ -35,7 +35,7 @@ function Header() {
             </Link>
           </li>
           <li>
-            <Link onClick={() => setMenuOpen(false)} to="plans" span={true} >
+            <Link onClick={() => setMenuOpen(false)} to="plans-container" span={true} >
               Plans
             </Link>
           </li>

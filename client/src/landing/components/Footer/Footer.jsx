@@ -10,11 +10,7 @@ function Footer() {
     <div className="Footer-container">
       <hr />
       <div className="footer1">
-        <div className="social-links">
-          <img src={Github} alt="1" />
-          <img src={Instagram} alt="2" />
-          <img src={LinkIn} alt="3" />
-        </div>
+        
         <div className="logo-f">
           <img src={Logo} alt="4" />
         </div>

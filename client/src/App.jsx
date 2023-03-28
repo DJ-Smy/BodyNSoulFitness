@@ -22,6 +22,8 @@ import TrainerChat from "./pages/Trainer/TrainerChat";
 import UserList from "./pages/Trainer/UserList";
 import Contact from "./components/Contact";
 import Membership from "./pages/Membership";
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
 import "./App.css";
 
 function App() {
@@ -52,6 +54,22 @@ function App() {
           element={
             <PublicRoute>
               <Register />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/password-reset"
+          element={
+            <PublicRoute>
+              <ResetPassword />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/forgot-password/:userId/:token"
+          element={
+            <PublicRoute>
+              <ForgotPassword />
             </PublicRoute>
           }
         />
