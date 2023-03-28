@@ -20,7 +20,7 @@ function Header() {
       ) : (
         <ul className="header-menu">
           <li>
-            <Link onClick={() => setMenuOpen(false)} to="hero" span={true} >
+            <Link onClick={() => setMenuOpen(false)} to="hero" span={true}>
               Home
             </Link>
           </li>
@@ -30,24 +30,29 @@ function Header() {
             </Link>
           </li>
           <li>
-            <Link onClick={() => setMenuOpen(false)} to="Reasons" span={true} >
+            <Link onClick={() => setMenuOpen(false)} to="Reasons" span={true}>
               Why us
             </Link>
           </li>
           <li>
-            <Link onClick={() => setMenuOpen(false)} to="plans-container" span={true} >
+            <Link onClick={() => setMenuOpen(false)} to="plans-container" span={true}>
               Plans
             </Link>
           </li>
 
           <li>
-            <Link onClick={() => setMenuOpen(false)} to="Testimonials" span={true} >
+            <Link onClick={() => setMenuOpen(false)} to="Testimonials" span={true}>
               Testimonials
             </Link>
           </li>
           <li>
-            <Link onClick={() => setMenuOpen(false)} to="Join" span={true} >
+            <Link onClick={() => setMenuOpen(false)} to="Join" span={true}>
               Join
+            </Link>
+          </li>
+          <li>
+            <Link onClick={() => setMenuOpen(false)} to="contact-us" span={true}>
+              Contact Us
             </Link>
           </li>
         </ul>

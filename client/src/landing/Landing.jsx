@@ -6,6 +6,7 @@ import { Reasons } from "./components/Reasons/Reasons";
 import Plans from "./components/Plans/Plans";
 import Testimonials from "./components/Testimonials/Testimonials";
 import Join from "./components/Join/Join";
+import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 
 function Landing() {
@@ -17,6 +18,7 @@ function Landing() {
       <Plans />
       <Testimonials />
       <Join />
+      <Contact />
       <Footer />
     </div>
   );
