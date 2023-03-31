@@ -56,7 +56,7 @@ function TrainersList() {
       dispatch(showLoading());
       const response = await axios.post(
         "/api/admin/delete-trainer",
-        { trainerId: record._id, userId: record.userId, tUserId: record.userId, status: status },
+        { trainerId: record._id, userId: record.userId, tUserId: record.userId },
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
