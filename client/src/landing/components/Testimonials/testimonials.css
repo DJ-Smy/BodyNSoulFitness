@@ -8,10 +8,11 @@
   padding: 0 2rem;
   display: flex;
   flex: 1 1;
-  gap: 2rem;
+  /* gap: 1rem; */
   flex-direction: column;
   text-transform: uppercase;
   color: white;
+
 }
 
 .left-t > :nth-child(1) {
@@ -52,7 +53,7 @@
   position: absolute;
   width: 20rem;
   height: 25rem;
-  border: 2px solid orange;
+  border: 2px solid #60a8dc;
   background-color: transparent;
   right: 10rem;
   top: 0rem;

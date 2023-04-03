@@ -1,6 +1,6 @@
 import React from "react";
 import { Toaster } from "react-hot-toast";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Switch } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home.jsx";
@@ -20,10 +20,11 @@ import Landing from "./landing/Landing";
 import ChatLists from "./pages/ChatList";
 import TrainerChat from "./pages/Trainer/TrainerChat";
 import UserList from "./pages/Trainer/UserList";
+import Contact from "./components/Contact";
 import Membership from "./pages/Membership";
-import ForgotPassword from "./pages/ForgotPassword";
-import ResetPassword from "./pages/ResetPassword";
+//import Programs from "./landing/components/Programs";
 import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const { loading } = useSelector((state) => state.alerts);
@@ -53,22 +54,6 @@ function App() {
           element={
             <PublicRoute>
               <Register />
-            </PublicRoute>
-          }
-        />
-        <Route
-          path="/password-reset"
-          element={
-            <PublicRoute>
-              <ResetPassword />
-            </PublicRoute>
-          }
-        />
-        <Route
-          path="/forgot-password/:userId/:token"
-          element={
-            <PublicRoute>
-              <ForgotPassword />
             </PublicRoute>
           }
         />
@@ -177,6 +162,14 @@ function App() {
           }
         />
         <Route
+          path="/contact"
+          element={
+            <ProtectedRoute>
+              <Contact />
+            </ProtectedRoute>
+          }
+        />
+        <Route
           path="/membership"
           element={
             <ProtectedRoute>
@@ -184,6 +177,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        
       </Routes>
     </BrowserRouter>
   );

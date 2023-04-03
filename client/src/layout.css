@@ -5,9 +5,15 @@
   font-family: "Montserrat", sans-serif;
 }
 
-.logo {
+.logo2 {
+  width: 5rem;
+  height: 5rem;
+
+}
+.title {
   color: white;
-  font-weight: bold;
+  font-size: 25px;
+  margin-left: 3px;
 }
 .role {
   color: white;
@@ -16,7 +22,7 @@
   margin-left: 5px;
 }
 .sidebar {
-  background-color: #005555;
+  background-color: #125889;
   border-radius: 5px;
   box-shadow: 0 0 2px gray;
   margin-right: 20px;
@@ -51,20 +57,21 @@
 .menu {
   margin-top: 100px;
   padding: 0 10px;
+  margin-bottom: 30px;
 }
 
 .menu-item {
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 .menu-item a {
-  color: rgba(255, 255, 255, 0.727);
+  color: white;
   text-decoration: none;
   font-size: 18px;
   padding: 0 10px;
 }
 .menu-item i {
-  color: rgba(255, 255, 255, 0.716);
+  color: white;
   text-decoration: none;
   font-size: 18px;
   margin: 0 15px;
@@ -72,7 +79,7 @@
 
 .active-menu-item {
   color: white;
-  background-color: #013737;
+  background-color: #000000;
   padding: 5px;
   border-radius: 5px;
 }

@@ -1,13 +1,15 @@
 .plans-header {
-  display: flex;
-  gap: 5rem;
+  display: inline-flex;
+  /* gap: 2rem; */
   font-weight: bold;
   font-size: 3.5rem;
   justify-content: center;
   color: white;
   text-transform: uppercase;
-  font-style: italic;
+  /* font-style: italic; */
   z-index: 2;
+  margin-top: -60px;
+  
 }
 
 .plans-container {
@@ -17,6 +19,7 @@
   flex-direction: column;
   gap: 4rem;
   position: relative;
+  
 }
 
 .plans {
@@ -25,6 +28,7 @@
   justify-content: center;
   gap: 5rem;
   z-index: 1;
+  
 }
 
 .plan {
@@ -35,11 +39,13 @@
   gap: 2rem;
   padding: 1.5rem;
   width: 22rem;
+  border-radius: 10px;
 }
 
 .plan:nth-child(2) {
   background: var(--orange);
-  transform: scale(1.1);
+  transform: scale(1.0);
+  border-radius: 10px;
 }
 
 .plan:nth-child(2) > svg {
@@ -49,7 +55,7 @@
 }
 
 .plans > :nth-child(2) > button {
-  color: orange;
+  color: rgb(0, 0, 0);
 }
 
 .plan > svg {
@@ -66,11 +72,14 @@
 .plan > :nth-child(3) {
   font-size: 3rem;
   font-weight: bolder;
+  color: rgb(215, 232, 239);
+  
 }
 
 .plan > :nth-child(5) {
   font-size: 0.8rem;
   font-weight: bold;
+  
 }
 
 .features {
@@ -118,5 +127,18 @@
   }
   .plans > :nth-child(2) {
     transform: none;
+  }
+
+  .gradient-text {
+    background: linear-gradient(to right, #f1e7e7, #60a8dc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 0.2;
+    /* -webkit-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+    -webkit-animation-duration: 10s;
+    animation-direction: right;
+    animation-duration: 10s; */
   }
 }

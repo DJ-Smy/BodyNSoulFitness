@@ -13,8 +13,8 @@ function Testimonials() {
     <div className="Testimonials">
       <div className="left-t">
         <span>Testimonials</span>
-        <span className="stroke-text">What they </span>
-        <span>say about us</span>
+        <span className="name">Why our clients </span>
+        <span>love us</span>
         <motion.span
           key={selected}
           initial={{ opacity: 0, x: -100 }}

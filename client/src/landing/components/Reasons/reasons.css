@@ -1,5 +1,5 @@
 .Reasons {
-  padding: 0 2rem;
+  /* padding: 0 2rem; */
   display: flex;
   gap: 2rem;
 }
@@ -46,8 +46,8 @@
   flex: 1 1;
   text-transform: uppercase;
   margin-left: 2rem;
-  margin-top: 2rem;
-  gap: 2rem;
+  margin-top: 5rem;
+  gap: 0.2rem;
   display: flex;
   flex-direction: column;
 }
@@ -60,7 +60,7 @@
 
 .right-r > div {
   color: white;
-  font-size: 4rem;
+  font-size: 2rem;
   font-weight: 900;
 }
 
@@ -71,10 +71,15 @@
 }
 
 .details-r > div {
-  display: flex;
-  font-size: 1.5rem;
-  gap: 2rem;
-  margin-top: 2rem;
+  /* display: flex; */
+  /* font-size: 1.5rem; */
+  gap: 2rem; 
+  margin-top: 0.25rem;
+  font-size: 12px;
+  text-align: left;
+
+
+  
 }
 
 .details-r > div > img {
@@ -110,7 +115,7 @@
   }
 
   .right-r > span {
-    font-size: large;
+    font-size: small;
   }
 
   .right-r > div {
@@ -120,4 +125,7 @@
   .details-r > div {
     font-size: small;
   }
+
+  
+  
 }

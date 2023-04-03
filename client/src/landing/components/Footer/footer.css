@@ -34,7 +34,7 @@
   width: 10rem;
 }
 
-.blur-f-1 {
+/* .blur-f-1 {
   bottom: 0;
   right: 15%;
   width: 26rem;
@@ -51,4 +51,4 @@
   height: 12rem;
   filter: blur(250px);
   background: rgb(255, 115, 0);
-}
+} */

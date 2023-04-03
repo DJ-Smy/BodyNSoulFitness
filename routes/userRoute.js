@@ -9,27 +9,13 @@ const Appointment = require("../models/appointmentModel");
 const Chat = require("../models/chatModel");
 const Reply = require("../models/replyModel");
 const moment = require("moment");
-const nodemailer = require("nodemailer");
-require("dotenv").config();
-
-//email config
-
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: "bodynsoulfitness2023@gmail.com",
-    pass: process.env.AUTH_PASS,
-  },
-});
 
 router.post("/register", async (req, res) => {
   try {
     const userExists = await User.findOne({ email: req.body.email });
 
     if (userExists) {
-      return res
-        .status(200)
-        .send({ message: "User already exists", success: false });
+      return res.status(200).send({ message: "User already exists", success: false });
     }
 
     const password = req.body.password;
@@ -39,9 +25,7 @@ router.post("/register", async (req, res) => {
 
     const newUser = new User(req.body);
     await newUser.save();
-    res
-      .status(200)
-      .send({ message: "User created successfully", success: true });
+    res.status(200).send({ message: "User created successfully", success: true });
   } catch (error) {
     console.log(error);
     res.status(500).send({
@@ -62,16 +46,12 @@ router.post("/login", async (req, res) => {
       });
     }
     if (!user) {
-      return res
-        .status(200)
-        .send({ message: "User does not exist", success: false });
+      return res.status(200).send({ message: "User does not exist", success: false });
     }
 
     const isMatch = await bcrypt.compare(req.body.password, user.password);
     if (!isMatch) {
-      return res
-        .status(200)
-        .send({ message: "Password is incorrect", success: false });
+      return res.status(200).send({ message: "Password is incorrect", success: false });
     } else {
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
         expiresIn: "1d",
@@ -80,116 +60,7 @@ router.post("/login", async (req, res) => {
     }
   } catch (error) {
     console.log(error);
-    res
-      .status(500)
-      .send({ message: "Error logging in", success: false, error: error });
-  }
-});
-
-//send email link for reset password
-router.post("/sendPasswordLink", async (req, res) => {
-  //console.log(req.body);
-
-  const { email } = req.body;
-
-  if (!email) {
-    res.status(401).send({ status: 401, message: "Enter Your Email" });
-  }
-
-  try {
-    const user = await User.findOne({ email: email });
-    //console.log("user", user);
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "120s",
-    });
-
-    const setUserToken = await User.findByIdAndUpdate({
-      _id: user._id,
-      verifyToken: token,
-    });
-
-    //console.log("token", token);
-    //console.log("setUserToken", setUserToken);
-    if (setUserToken) {
-      const mailOptions = {
-        from: "bodynsoulfitness2023@gmail.com",
-        to: email,
-        subject: "Sending Email for password reset",
-        text: `This Link valid for 2 minutes http://localhost:3000/forgot-password/${user.id}/${setUserToken.verifyToken}`,
-      };
-
-      transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-          return res
-            .status(401)
-            .send({ status: 401, message: "Email not send" });
-        } else {
-          return res.status(200).send({
-            status: 200,
-            message: "Email sent successfully",
-          });
-        }
-      });
-    }
-  } catch (error) {
-    res.status(401).send({ status: 401, message: "Invalid User" });
-  }
-});
-
-// forgot password
-// verify user for forgot password time
-
-router.get("/forgot-password/:userId/:token", async (req, res) => {
-  const { userId, token } = req.params;
-  try {
-    const validUser = await User.findOne(
-      { _id: userId },
-      { verifyToken: token }
-    );
-
-    const verifyToken = jwt.verify(token, process.env.JWT_SECRET);
-    //console.log(validUser);
-    //console.log(verifyToken);
-
-    if (validUser && verifyToken.id) {
-      res.status(201).json({ status: 201, validUser });
-    } else {
-      res.status(401).json({ status: 401, message: "user not exist" });
-    }
-  } catch (error) {
-    return res.status(401).send({ status: 500, message: error.message });
-  }
-});
-
-//change password
-router.post("/:userId/:token", async (req, res) => {
-  const { userId, token } = req.params;
-  const { password } = req.body;
-
-  try {
-    const validUser = await User.findOne(
-      { _id: userId },
-      { verifyToken: token }
-    );
-
-    const verifyToken = jwt.verify(token, process.env.JWT_SECRET);
-
-    if (validUser && verifyToken.id) {
-      const salt = await bcrypt.genSalt(10);
-      const newPassword = await bcrypt.hash(password, salt);
-      const setNewUserPassword = await User.findByIdAndUpdate(
-        { _id: userId },
-        { password: newPassword }
-      );
-
-      setNewUserPassword.save();
-
-      res.status(201).json({ status: 201, setNewUserPassword });
-    } else {
-      res.status(401).json({ status: 401, message: "user not exist" });
-    }
-  } catch (error) {
-    res.status(401).json({ status: 401, message: error.message });
+    res.status(500).send({ message: "Error logging in", success: false, error: error });
   }
 });
 
@@ -199,9 +70,7 @@ router.post("/get-user-info-by-id", authMiddleware, async (req, res) => {
     //console.log(user);
     user.password = undefined;
     if (!user) {
-      return res
-        .status(200)
-        .send({ message: "User does not existed", success: false });
+      return res.status(200).send({ message: "User does not existed", success: false });
     } else {
       res.status(200).send({ success: true, data: user });
     }
@@ -216,10 +85,7 @@ router.post("/get-user-info-by-id", authMiddleware, async (req, res) => {
 
 router.post("/update-user-profile", authMiddleware, async (req, res) => {
   try {
-    const user = await User.findOneAndUpdate(
-      { _id: req.body.userId },
-      req.body
-    );
+    const user = await User.findOneAndUpdate({ _id: req.body.userId }, req.body);
     console.log(req.body);
     console.log(user);
     res.status(200).send({
@@ -267,34 +133,30 @@ router.post("/apply-trainer-account", authMiddleware, async (req, res) => {
   }
 });
 
-router.post(
-  "/mark-all-notifications-as-seen",
-  authMiddleware,
-  async (req, res) => {
-    try {
-      const user = await User.findOne({ _id: req.body.userId });
-      const unseenNotifications = user.unseenNotifications;
-      const seenNotifications = user.seenNotifications;
-      seenNotifications.push(...unseenNotifications);
-      user.unseenNotifications = [];
-      user.seenNotifications = seenNotifications;
-      const updatedUser = await user.save();
-      updatedUser.password = undefined;
-      res.status(200).send({
-        success: true,
-        message: "All notifications marked as seen",
-        data: updatedUser,
-      });
-    } catch (error) {
-      console.log(error);
-      res.status(500).send({
-        message: "Error applying notifications",
-        success: false,
-        error,
-      });
-    }
+router.post("/mark-all-notifications-as-seen", authMiddleware, async (req, res) => {
+  try {
+    const user = await User.findOne({ _id: req.body.userId });
+    const unseenNotifications = user.unseenNotifications;
+    const seenNotifications = user.seenNotifications;
+    seenNotifications.push(...unseenNotifications);
+    user.unseenNotifications = [];
+    user.seenNotifications = seenNotifications;
+    const updatedUser = await user.save();
+    updatedUser.password = undefined;
+    res.status(200).send({
+      success: true,
+      message: "All notifications marked as seen",
+      data: updatedUser,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      message: "Error applying notifications",
+      success: false,
+      error,
+    });
   }
-);
+});
 
 router.post("/delete-all-notifications", authMiddleware, async (req, res) => {
   try {
@@ -369,9 +231,7 @@ router.post("/check-booking-availability", authMiddleware, async (req, res) => {
   try {
     const date = moment(req.body.date, "YYYY-MM-DD").toISOString();
 
-    const fromTime = moment(req.body.time, "HH:mm")
-      .subtract(1, "hours")
-      .toISOString();
+    const fromTime = moment(req.body.time, "HH:mm").subtract(1, "hours").toISOString();
     const toTime = moment(req.body.time, "HH:mm").add(1, "hours").toISOString();
     const trainerId = req.body.trainerId;
     const appointments = await Appointment.find({
