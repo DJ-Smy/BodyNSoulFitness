@@ -1,17 +1,19 @@
 import { Badge } from "antd";
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Logo from "../landing/assets/logo2.png"
 
 import "../layout.css";
+import { setLogout } from '../redux/userSlice';
 
 function Layout({ children }) {
   const [collapsed, setCollapsed] = useState(false);
   const { user } = useSelector((state) => state.user);
-  //console.log(user);
+  //console.log("user:", user);
   const location = useLocation();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const userMenu = [
     {
@@ -124,6 +126,7 @@ function Layout({ children }) {
               className={`d-flex menu-item`}
               onClick={() => {
                 localStorage.clear();
+                dispatch(setLogout())
                 navigate("/");
               }}
             >
