@@ -5,19 +5,20 @@
 }
 
 .logo {
-  width: 13rem;
+  width: 10rem;
   height: 10rem;
 }
 
 .header-menu {
-  padding-top: 3.5rem;
-  font-size: medium;
+  padding-top: 1rem;
   list-style: none;
   display: flex;
   gap: 2rem;
   color: white;
-}
+  font-size: 25px;
 
+}
+  
 .header-menu > li {
   cursor: pointer;
 }
@@ -36,6 +37,6 @@
   .header-menu {
     flex-direction: column;
     background-color: var(--orange);
-    padding: 2rem;
+    /* padding: 1rem; */
   }
 }

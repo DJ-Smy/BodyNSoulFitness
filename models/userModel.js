@@ -40,10 +40,7 @@ const userSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      default: "unblocked",
-    },
-    verifyToken: {
-      type: String,
+      default: "approved",
     },
   },
   {

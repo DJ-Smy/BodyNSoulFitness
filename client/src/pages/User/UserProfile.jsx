@@ -28,7 +28,7 @@ function UserProfile() {
       dispatch(hideLoading());
       if(response.data.success) {
         toast.success(response.data.message);
-        navigate('/home');
+        navigate('/');
       } else {
         
         toast.error(response.data.message);

@@ -12,49 +12,44 @@ function Header() {
       <img className="logo" src={Logo} alt="logo" />
       {menuOpen === false && mobile === true ? (
         <div
-          style={{ backgroundColor: "var(--appColor)", padding: "0.5rem", borderRadius: "5px" }}
+          style={{ backgroundColor: "var(--appColor)", padding: "0.5rem", borderRadius: "1px" }}
           onClick={() => setMenuOpen(true)}
         >
           <img src={Bars} alt="hamBar" style={{ width: "1.5rem", height: "1.5rem" }} />
         </div>
       ) : (
         <ul className="header-menu">
-          <li>
-            <Link onClick={() => setMenuOpen(false)} to="hero" span={true}>
+          {/* <li>
+            <Link onClick={() => setMenuOpen(false)} to="hero" span={true} >
               Home
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link onClick={() => setMenuOpen(false)} to="Programs" span={true}>
               Programs
             </Link>
           </li>
           <li>
-            <Link onClick={() => setMenuOpen(false)} to="Reasons" span={true}>
-              Why us
+            <Link onClick={() => setMenuOpen(false)} to="Reasons" span={true} >
+              About
             </Link>
           </li>
           <li>
-            <Link onClick={() => setMenuOpen(false)} to="plans-container" span={true}>
+            <Link onClick={() => setMenuOpen(false)} to="plans" span={true} >
               Plans
             </Link>
           </li>
 
           <li>
-            <Link onClick={() => setMenuOpen(false)} to="Testimonials" span={true}>
+            <Link onClick={() => setMenuOpen(false)} to="Testimonials" span={true} >
               Testimonials
             </Link>
           </li>
-          <li>
-            <Link onClick={() => setMenuOpen(false)} to="Join" span={true}>
+          {/* <li>
+            <Link onClick={() => setMenuOpen(false)} to="Join" span={true} >
               Join
             </Link>
-          </li>
-          <li>
-            <Link onClick={() => setMenuOpen(false)} to="contact-us" span={true}>
-              Contact Us
-            </Link>
-          </li>
+          </li> */}
         </ul>
       )}
     </div>

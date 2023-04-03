@@ -29,6 +29,7 @@ function TrainersList() {
   };
 
   const changeTrainerStatus = async (record, status) => {
+    console.log(record.userId);
     try {
       dispatch(showLoading());
       const response = await axios.post(
@@ -73,6 +74,7 @@ function TrainersList() {
       dispatch(hideLoading());
     }
   };
+
 
   useEffect(() => {
     getTrainersData();
@@ -127,22 +129,12 @@ function TrainersList() {
             </h1>
           )}
           {record.status === "blocked" && (
-            <>
             <h1
               className="anchor"
               onClick={() => changeTrainerStatus(record, "approved")}
             >
               Approve
             </h1>
-
-              <h1
-              style={{marginLeft: "10px"}}
-              className="anchor"
-              onClick={() => deleteTrainer(record)}
-            >
-              Delete
-            </h1>
-            </>
           )}
         </div>
       ),

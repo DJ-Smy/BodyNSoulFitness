@@ -2,6 +2,7 @@ import { Badge } from "antd";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Logo from "../landing/assets/logo2.png"
 
 import "../layout.css";
 import { setLogout } from '../redux/userSlice';
@@ -26,7 +27,7 @@ function Layout({ children }) {
       icon: "ri-file-list-line",
     },
     {
-      name: "Apply Trainer",
+      name: "Apply Job",
       path: "/apply-trainer",
       icon: "ri-run-line",
     },
@@ -44,6 +45,11 @@ function Layout({ children }) {
     {
       name: "Chat",
       path: `/chatLists`,
+      icon: "ri-chat-new-line",
+    },
+    {
+      name: "Contact",
+      path: `/contact`,
       icon: "ri-chat-new-line",
     },
   ];
@@ -83,6 +89,11 @@ function Layout({ children }) {
       icon: "ri-user-line",
     },
     {
+      name: "Users",
+      path: "/trainer/userslist",
+      icon: "ri-file-user-fill",
+    },
+    {
       name: "Chat",
       path: `/trainer/chatLists/${user?._id}`,
       icon: "ri-chat-new-line",
@@ -96,10 +107,11 @@ function Layout({ children }) {
     <div className="main">
       <div className="d-flex layout">
         <div className="sidebar">
-          <div className="logo">
-            <h1>BS</h1>
-            <h1 className="role">{role}</h1>
-          </div>
+            <img className="logo2" src={Logo} alt="logo" />
+            <h1 className="title">BODY & SOUL</h1>
+            <br></br>
+            <h1 className="role">{role} Account</h1>
+          
           <div className="menu">
             {menuToBeRendered.map((menu) => {
               const isActive = location.pathname === menu.path;

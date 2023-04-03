@@ -2,8 +2,8 @@
 :root {
   --lightgray: #d9d9d9;
   --gray: #9c9c9c;
-  --orange: #f48915;
+  --orange: #60a8dc;
   --darkGrey: #464d53;
-  --caloryCard: #656565;
-  --appColor: #3c3f45;
+  --caloryCard: #222020;
+  --appColor: rgb(1, 5, 16);
 }

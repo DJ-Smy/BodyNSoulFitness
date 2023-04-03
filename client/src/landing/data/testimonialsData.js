@@ -1,4 +1,4 @@
-import image1 from "../assets/t-image1.png";
+import image1 from "../assets/t-image1.jpg";
 import image2 from "../assets/t-image2.jpg";
 import image3 from "../assets/t-image3.jpg";
 
@@ -6,21 +6,21 @@ export const testimonialsData = [
   {
     image: image1,
     review:
-      "I made the right choice by choosing the Fitclub and by choosing the right plan and program I already achieved my ideal body!",
-    name: "MATHEW HENDRICKSON",
-    status: "ENTREPRENEUR",
+      "I made the right choice by choosing Body and Soul Fitness. Choosing the right plan and program.",
+    name: "Jack Daniels",
+    status: "Client",
   },
   {
     image: image2,
     review:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi ipsam, ab itaque nam perferendis impedit sint ",
-    name: "JOHN KEVIN",
-    status: "COACH",
+      "Since starting at Body & Soul I've already started seeing results, great place to work out and the staff are professionals.",
+    name: "ELLA PHANTE",
+    status: "CLIENT",
   },
   {
     image: image3,
-    review: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima aspernatur quod voluptatem",
-    name: "FRANKLIN",
-    status: "CUSTOMER",
+    review: "I used to be on the TV show 'My 600lb life', but Body & Soul Fitness saved my life. I owe them my soul and body.",
+    name: "JIM RHATT",
+    status: "CLIENT",
   },
 ];

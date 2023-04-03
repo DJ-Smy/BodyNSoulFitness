@@ -69,7 +69,7 @@ function Membership() {
 
   return (
     <Layout>
-      <h1 className="page-title">Membership</h1>
+      <h1>Membership</h1>
       <br />
       <br />
       <div className="membership_row">
@@ -133,7 +133,7 @@ function Membership() {
         </div>
       </div>
       <br></br>
-      <div style={{ maxWidth: "500px", minHeight: "200px", marginTop: "100px" ,marginLeft: "420px" }}>
+      <div style={{ maxWidth: "750px", minHeight: "200px" }}>
         <PayPalScriptProvider
           options={{
             "client-id": "test",
