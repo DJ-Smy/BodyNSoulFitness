@@ -41,15 +41,9 @@ function Layout({ children }) {
       path: `/user/profile/${user?._id}`,
       icon: "ri-user-line",
     },
-    
     {
       name: "Chat",
       path: `/chatLists`,
-      icon: "ri-chat-new-line",
-    },
-    {
-      name: "Contact",
-      path: `/contact`,
       icon: "ri-chat-new-line",
     },
   ];

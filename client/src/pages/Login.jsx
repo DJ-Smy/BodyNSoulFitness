@@ -49,7 +49,8 @@ function Login() {
             </Form.Item>
             <div className='d-flex flex-column'>
             <Button className='primary-button my-2 full-width-button' htmlType='submit'>LOGIN</Button>
-            <Link to='/register' className='anchor mt-2'>Register</Link>
+            <Link to='/register' style={{fontWeight: 700}} className='anchor mt-2'>CLICK HERE TO REGISTER</Link>
+            <Link to='/password-reset' style={{fontWeight: 700}} className='anchor mt-3'>CLICK HERE TO RESET PASSWORD</Link>
             </div>
           </Form>
       </div>
