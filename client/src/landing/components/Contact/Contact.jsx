@@ -122,7 +122,12 @@ function App() {
                         </div>
                         <div className="col-md-12">
                           <div className="form-group">
-                            <input type="submit" value="Send Message" className="btn btn-primary" />
+                            <input
+                              type="submit"
+                              value="Send Message"
+                              className="btn btn-primary"
+                              style={{ color: "black" }}
+                            />
                           </div>
                         </div>
                       </div>
