@@ -48,8 +48,8 @@ dispatch(showLoading());
                         <Input value={email} onChange={setVal} placeholder='Email'></Input>
                     </Form.Item>
                     <div className='d-flex flex-column'>
-                        <Button onClick={sendLink} className='primary-button my-2 full-width-button'>SEND LINK</Button>
-                        <Link to='/login' style={{fontWeight: 700}} className='anchor mt-3'>BACK TO LOGIN</Link>
+                        <Button onClick={sendLink} className='primary-button my-2 full-width-button'>Send Link</Button>
+                        <Link to='/login'  className='anchor mt-3'>Login</Link>
                     </div>
                 </Form>
         </div>

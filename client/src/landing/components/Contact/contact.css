@@ -1,0 +1,187 @@
+.Join {
+  display: flex;
+  padding: 0 2rem;
+  gap: 10rem;
+}
+.left-j {
+  padding: 0 2rem;
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  position: relative;
+}
+.left-j > hr {
+  position: absolute;
+  width: 10.5rem;
+  border: 2px solid #60a8dc;
+  border-radius: 20%;
+  margin: -7px 0;
+  opacity: 1;
+}
+.left-j > div {
+  display: flex;
+  gap: 1rem;
+}
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+.contact-wrap {
+  background-color: #60a8dc;
+  border-radius: 10px;
+}
+.contact-wrap h3 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+h3 {
+  color: #fff;
+}
+.img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.form-control {
+  height: 62px;
+  margin-top: 10px;
+  background: whtie;
+  box-shadow: none !important;
+  border-radius: 10px;
+}
+.form-control::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+.form-control::-moz-placeholder {
+  /* Firefox 19+ */
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+.form-control:-ms-input-placeholder {
+  /* IE 0+ */
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+.form-control:-moz-placeholder {
+  /* Firefox 18- */
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+.form-control:focus,
+.form-control:active {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+}
+textarea.form-control {
+  height: inherit !important;
+  margin-top: 10px;
+}
+
+.contactForm .form-control {
+  padding: 0;
+  border-radius: 10px;
+}
+.btn {
+  padding: 12px;
+  width: 100%;
+  cursor: pointer;
+  border-width: 1px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 400;
+  -webkit-box-shadow: 0px 10px 20px -6px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0px 10px 20px -6px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 10px 20px -6px rgba(0, 0, 0, 0.12);
+  position: relative;
+  margin-top: 20px;
+  color: #000;
+}
+.btn-primary {
+  background: white !important;
+  border-color: white !important;
+}
+.info-wrap {
+  background-color: var(--caloryCard);
+  border-radius: 10px;
+}
+.info-wrap h3 {
+  color: #60a8dc;
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.info-wrap h3:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 120px;
+  height: 3px;
+  background: #ffffff;
+  content: "";
+}
+.info-wrap .dbox {
+  width: 100%;
+  margin-bottom: 25px;
+}
+.info-wrap .dbox:last-child() {
+  margin-bottom: 0;
+}
+.info-wrap .dbox p {
+  margin-bottom: 0;
+  color: white;
+}
+.info-wrap .dbox p span {
+  font-weight: 400;
+  color: #000;
+}
+.info-wrap .dbox p a {
+  color: rgba(255, 255, 255);
+}
+.info-wrap .dbox .icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255);
+  margin-right: 10px;
+}
+.info-wrap .dbox .icon span {
+  font-size: 20px;
+  color: #ffffff;
+}
+.info-wrap .dbox .text {
+  width: calc(100% - 50px);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+  line-height: 1.5;
+  font-weight: 400;
+  font-family: "Poppins", Arial, sans-serif;
+  color: #a20606;
+}
+a {
+  transition: 0.3s all ease;
+  color: #d62196;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  text-decoration: none !important;
+  outline: none !important;
+  box-shadow: none;
+}
+#contactForm {
+  border-radius: 10px;
+}
+#contactForm .form-control {
+  font-size: 16px;
+}

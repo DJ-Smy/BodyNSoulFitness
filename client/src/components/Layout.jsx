@@ -101,7 +101,7 @@ function Layout({ children }) {
     <div className="main">
       <div className="d-flex layout">
         <div className="sidebar">
-            <img className="logo2" src={Logo} alt="logo" />
+          <a href="/"><img className="logo2" src={Logo} alt="logo" /></a>
             <h1 className="title">BODY & SOUL</h1>
             <br></br>
             <h1 className="role">{role} Account</h1>

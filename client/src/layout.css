@@ -6,9 +6,9 @@
 }
 
 .logo2 {
-  width: 5rem;
-  height: 5rem;
-
+  width: 12.5rem;
+  height: 12.5rem;
+  margin-left: 10px;
 }
 .title {
   color: white;
@@ -28,6 +28,7 @@
   margin-right: 20px;
   min-height: 100%;
   padding: 10px;
+  width: 300px;
 }
 .content {
   width: 100%;

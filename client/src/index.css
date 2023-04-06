@@ -142,6 +142,8 @@ p {
   overflow-x:hidden;
 }
 
+
+
 .membership_row {
   display: flex;
 }
@@ -200,4 +202,27 @@ p {
   filter: brightness(50%) blur(1px);
   border-top-left-radius: 300px;
   border-bottom-left-radius: 300px; 
+}
+.login-image-left2 {
+  left: -487px;
+  filter: brightness(50%) blur(1px);
+  border-top-right-radius: 300px;
+  border-bottom-right-radius: 300px;
+  width: 402px;
+  height: 550px;
+}
+
+.login-image-right2 {
+  right: -482px;
+  filter: brightness(50%) blur(1px);
+  border-top-left-radius: 300px;
+  border-bottom-left-radius: 300px; 
+  width: 402px;
+  height: 550px;
+}
+
+.anchor{
+  text-decoration-line: underline;
+  text-align: center;
+  color: rgb(19, 19, 19);
 }

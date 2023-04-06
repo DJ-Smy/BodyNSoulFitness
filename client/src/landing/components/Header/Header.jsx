@@ -30,26 +30,26 @@ function Header() {
             </Link>
           </li>
           <li>
-            <Link onClick={() => setMenuOpen(false)} to="Reasons" span={true} >
+            <Link onClick={() => setMenuOpen(false)} to="Reasons" span={true}>
               About
             </Link>
           </li>
           <li>
-            <Link onClick={() => setMenuOpen(false)} to="plans" span={true} >
+            <Link onClick={() => setMenuOpen(false)} to="plans" span={true}>
               Plans
             </Link>
           </li>
 
           <li>
-            <Link onClick={() => setMenuOpen(false)} to="Testimonials" span={true} >
+            <Link onClick={() => setMenuOpen(false)} to="Testimonials" span={true}>
               Testimonials
             </Link>
           </li>
-          {/* <li>
-            <Link onClick={() => setMenuOpen(false)} to="Join" span={true} >
-              Join
+          <li>
+            <Link onClick={() => setMenuOpen(false)} to="Join" span={true}>
+              Contact
             </Link>
-          </li> */}
+          </li>
         </ul>
       )}
     </div>
