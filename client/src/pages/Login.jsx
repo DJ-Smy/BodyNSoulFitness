@@ -36,10 +36,10 @@ function Login() {
   return (
     
     <div className='authentication'>
-      <div className='authentication-form card p-5'>
+      <div className='authentication-form card p-3'>
       <img src={leftImage} alt="Left Image" class="login-image login-image-left"/>
       <img src={rightImage} alt="Right Image" class="login-image login-image-right"/>
-          <h1 className='card-title gradient-text-login'>Sign In</h1>
+      <h1 className='card-title'>Sign In</h1>
           <Form layout='vertical' onFinish={onFinish}>
             <Form.Item label='Email' name='email'rules={[{ required: true, message: 'Please input your Email!' }]}>
               <Input placeholder='Email' style={{ borderRadius: '10px'}}/>
@@ -48,9 +48,9 @@ function Login() {
               <Input placeholder='Password' type='password' style={{ borderRadius: '10px'}}/>
             </Form.Item>
             <div className='d-flex flex-column'>
-            <Button className='primary-button my-2 full-width-button' htmlType='submit'>LOGIN</Button>
-            <Link to='/register' style={{fontWeight: 700}} className='anchor mt-2'>CLICK HERE TO REGISTER</Link>
-            <Link to='/password-reset' style={{fontWeight: 700}} className='anchor mt-3'>CLICK HERE TO RESET PASSWORD</Link>
+            <Button className='primary-button my-2 full-width-button' htmlType='submit'>Login</Button>
+            <Link to='/register' className='anchor mt-2'>Sign up</Link>
+            <Link to='/password-reset'  className='anchor mt-3'>Forgot password</Link>
             </div>
           </Form>
       </div>

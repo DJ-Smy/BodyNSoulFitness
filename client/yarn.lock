@@ -5251,6 +5251,11 @@
   "resolved" "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz"
   "version" "1.0.0"
 
+"fsevents@^2.3.2", "fsevents@~2.3.2":
+  "integrity" "sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA=="
+  "resolved" "https://registry.npmjs.org/fsevents/-/fsevents-2.3.2.tgz"
+  "version" "2.3.2"
+
 "function-bind@^1.1.1":
   "integrity" "sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A=="
   "resolved" "https://registry.npmjs.org/function-bind/-/function-bind-1.1.1.tgz"
@@ -7471,7 +7476,7 @@
   "resolved" "https://registry.npmjs.org/node-releases/-/node-releases-2.0.10.tgz"
   "version" "2.0.10"
 
-"node-sass@^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0", "node-sass@^7.0.3":
+"node-sass@^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0":
   "integrity" "sha512-8MIlsY/4dXUkJDYht9pIWBhMil3uHmE8b/AdJPjmFn1nBx9X9BASzfzmsCy0uCCb8eqI3SYYzVPDswWqSx7gjw=="
   "resolved" "https://registry.npmjs.org/node-sass/-/node-sass-7.0.3.tgz"
   "version" "7.0.3"
@@ -7491,6 +7496,11 @@
     "sass-graph" "^4.0.1"
     "stdout-stream" "^1.4.0"
     "true-case-path" "^1.0.2"
+
+"nodemailer@^6.9.1":
+  "integrity" "sha512-qHw7dOiU5UKNnQpXktdgQ1d3OFgRAekuvbJLcdG5dnEo/GtcTHRYM7+UfJARdOFU9WUQO8OiIamgWPmiSFHYAA=="
+  "resolved" "https://registry.npmjs.org/nodemailer/-/nodemailer-6.9.1.tgz"
+  "version" "6.9.1"
 
 "nopt@^5.0.0":
   "integrity" "sha512-Tbj67rffqceeLpcRXrT7vKAN8CwfPeIBgM7E6iBkmKLV7bEMwpGgYLGv0jACUsECaa/vuxP0IjEont6umdMgtQ=="

@@ -5,6 +5,8 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { hideLoading, showLoading } from '../redux/alertsSlice';
+import leftImage from "../images/RImageL.jpg";
+import rightImage from "../images/RImageR.jpg";
 
 function Register() {
 
@@ -35,7 +37,9 @@ function Register() {
   return (
     <div className='authentication'>
       <div className='authentication-form card p-3'>
-          <h1 className='card-title'>Nice to Meet U</h1>
+      <img src={leftImage} alt="Left Image" class="login-image login-image-left2"/>
+      <img src={rightImage} alt="Right Image" class="login-image login-image-right2"/>
+          <h1 className='card-title'>Register</h1>
           <Form layout='vertical' onFinish={onFinish}>
             <Form.Item label='Name' name='name' rules={[{ required: true, message: 'Please input your Name!' }]}>
               <Input placeholder='Name'></Input>
@@ -54,9 +58,9 @@ function Register() {
             </Form.Item>
 
             <div className='d-flex flex-column'>
-            <Button className='primary-button my-2 full-width-button' htmlType='submit'>REGISTER</Button>
+            <Button className='primary-button my-2 full-width-button' htmlType='submit'>Register</Button>
 
-            <Link to='/login' className='anchor mt-2'>CLICK HERE TO LOGIN</Link>
+            <Link to='/login' className='anchor mt-2'>Login</Link>
             </div>
           </Form>
       </div>
