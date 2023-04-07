@@ -15,9 +15,9 @@ export const Programs = () => {
   const navigate = useNavigate();
   return (
     <div className="Programs">
-      <div className="category text-uppercase">What we 
-        <div className="join-now">Offer</div>
-      </div>
+      <div className="offer">
+      <span className="programs-header gradient-text">What We Offer</span>
+      
     <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -31,8 +31,8 @@ export const Programs = () => {
         <img src={bodyBuild} class="d-block w-100 c-img" alt="Slide 1"/>
 
         <div class="carousel-caption top-0 mt-4">
-          <p class="fs-3 text-uppercase" style={{color: '#FFF'}}>Power</p>
-          <h1 class="display-1 fw-bolder text-capitalize" style={{color: '#FFF'}}>Body Building</h1>
+          <p class="fs-3 text-uppercase fs-3 mt-5" style={{color: '#FFF'}}>Power</p>
+          <p class="display-1 fw-bolder text-capitalize" style={{color: '#FFF'}}>Body Building</p>
           <button class="btn btn-primary px-4 py-2 fs-5 mt-5" onClick={() => {
             navigate("/register");
           }}>Join Now</button>
@@ -81,6 +81,7 @@ export const Programs = () => {
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
+  </div>
   </div>
   </div>
   );

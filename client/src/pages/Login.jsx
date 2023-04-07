@@ -51,6 +51,7 @@ function Login() {
             <Button className='primary-button my-2 full-width-button' htmlType='submit'>Login</Button>
             <Link to='/register' className='anchor mt-2'>Sign up</Link>
             <Link to='/password-reset'  className='anchor mt-3'>Forgot password</Link>
+            <Link to='/'  className='anchor mt-3'>Back to page</Link>
             </div>
           </Form>
       </div>

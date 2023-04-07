@@ -3,7 +3,7 @@ import "./footer.css";
 import Github from "../../assets/twitter.png";
 import Instagram from "../../assets/instagram.png";
 // import LinkIn from "../../assets/linkedin.png";
-import Logo from "../../assets/logo.png";
+import Logo from "../../assets/logo3.png";
 import LinkIn from "../../assets/facebook.png";
 
 function Footer() {

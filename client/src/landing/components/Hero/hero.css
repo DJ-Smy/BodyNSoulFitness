@@ -14,9 +14,8 @@
   height: 100%;
   background-image: url(../../assets/gym.jpg);
   filter: brightness(20%);
-  background-position-y:bottom;
+  background-position-y: bottom;
 }
-
 
 .left-h {
   padding: 5rem;
@@ -128,10 +127,18 @@
 
 .right-h > .btn1 {
   position: absolute;
-  width: 10rem;
+  width: 9rem;
   right: 5rem;
-  top: 2rem;
+  top: 4rem;
   color: black;
+  border-radius: 10px;
+  transition: all 0.2s ease-in;
+}
+
+.right-h > .btn1:hover {
+  background-color: #60a8dc;
+  transform: scale(1.1);
+  color: white;
 }
 
 .heart-rate {
@@ -303,46 +310,42 @@
   }
 }
 
- 
-  .gradient-text {
-    background: linear-gradient(to right, #f1e7e7, #60a8dc);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    line-height: 0.2;
-    /* -webkit-animation-fill-mode:forwards;
+.gradient-text {
+  background: linear-gradient(to right, #f1e7e7, #60a8dc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 0.2;
+  /* -webkit-animation-fill-mode:forwards;
     animation-fill-mode:forwards;
     -webkit-animation-duration: 10s;
     animation-direction: right;
     animation-duration: 10s; */
-  }
+}
 
-  .gradient-text-reversed {
-    background: linear-gradient(to left, #f1e7e7, #60a8dc);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    line-height: 0.2;
-    
-  }
+.gradient-text-reversed {
+  background: linear-gradient(to left, #f1e7e7, #60a8dc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 0.2;
+}
 
-  .rounded-background {
-    background-color: var(--appColor);
-    border-radius: 10px;
-    padding: 10px;
-    display: inline-block;
-  }
-  
-  .heroPhraseCaption {
-    padding-left: 430px;
-    
-  }
+.rounded-background {
+  background-color: var(--appColor);
+  border-radius: 10px;
+  padding: 10px;
+  display: inline-block;
+}
 
-  .name {
-    color:#60a8dc;
-  }
+.heroPhraseCaption {
+  padding-left: 430px;
+}
 
-  .header-menu > li {
-    cursor: pointer;
-  }
- 
+.name {
+  color: #60a8dc;
+}
+
+.header-menu > li {
+  cursor: pointer;
+}

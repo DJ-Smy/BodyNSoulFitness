@@ -10,7 +10,7 @@ function Plans() {
       <div className="blur plans-blur-1"></div>
       <div className="blur plans-blur-2"></div>
       <div className="plans-header" style={{ gap: "2rem" }}>
-        <span>START YOUR <span className="gradient-text">JOURNEY </span> NOW WITH US</span>
+        <span>START YOUR <span className="gradient-text">JOURNEY WITH US</span></span>
         {/* <span>YOUR JOURNEY</span>
         <span>NOW WITH US</span> */}
       </div>
@@ -34,7 +34,7 @@ function Plans() {
             <div>
               {/* <span>See more benefits ➡</span> */}
             </div>
-            <button className="btn1" onClick={() => {
+            <button className="plan-btn1" onClick={() => {
             navigate("/register");
           }}>Join now</button>
           </div>

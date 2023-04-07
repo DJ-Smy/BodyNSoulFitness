@@ -4,12 +4,30 @@
   gap: 2rem;
 }
 
+.reason-header {
+  display: inline-flex;
+  /* gap: 2rem; */
+
+  font-size: 4.5rem;
+  justify-content: center;
+  color: white;
+  text-transform: uppercase;
+  z-index: 2;
+  font-weight: 700;
+}
+
+.gradient-text {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
 .left-r {
   flex: 1 1;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   grid-auto-rows: 1fr;
+  margin-left: 35px;
 }
 
 .left-r > img {
@@ -44,9 +62,10 @@
 
 .right-r {
   flex: 1 1;
+  margin-top: 50px;
   text-transform: uppercase;
   margin-left: 2rem;
-  margin-top: 5rem;
+  /* margin-top: 5rem; */
   gap: 0.2rem;
   display: flex;
   flex-direction: column;
@@ -55,12 +74,12 @@
 .right-r > span {
   font-weight: bold;
   color: var(--orange);
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 .right-r > div {
   color: white;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 900;
 }
 
@@ -73,13 +92,11 @@
 .details-r > div {
   /* display: flex; */
   /* font-size: 1.5rem; */
-  gap: 2rem; 
+  gap: 2rem;
   margin-top: 0.25rem;
-  font-size: 12px;
-  text-align: left;
-
-
-  
+  font-size: 18px;
+  text-align: justify;
+  /* position: absolute; */
 }
 
 .details-r > div > img {
@@ -125,7 +142,4 @@
   .details-r > div {
     font-size: small;
   }
-
-  
-  
 }

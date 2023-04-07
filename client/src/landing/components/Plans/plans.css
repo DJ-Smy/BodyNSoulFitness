@@ -1,15 +1,14 @@
 .plans-header {
   display: inline-flex;
   /* gap: 2rem; */
-  font-weight: bold;
-  font-size: 3.5rem;
+  font-weight: 700;
+  font-size: 4rem;
   justify-content: center;
   color: white;
   text-transform: uppercase;
   /* font-style: italic; */
   z-index: 2;
   margin-top: -60px;
-  
 }
 
 .plans-container {
@@ -19,7 +18,6 @@
   flex-direction: column;
   gap: 4rem;
   position: relative;
-  
 }
 
 .plans {
@@ -28,34 +26,44 @@
   justify-content: center;
   gap: 5rem;
   z-index: 1;
-  
 }
 
 .plan {
   display: flex;
   flex-direction: column;
-  background-color: var(--caloryCard);
+  background-color: rgb(69, 69, 69);
   color: white;
   gap: 2rem;
   padding: 1.5rem;
   width: 22rem;
   border-radius: 10px;
+  transition: all 0.2s;
 }
 
-.plan:nth-child(2) {
-  background: var(--orange);
-  transform: scale(1.0);
-  border-radius: 10px;
+.plan:hover {
+  transform: scale(1.1);
+  color: black;
+  background-color: #86c4f1;
+  font-weight: 700;
 }
 
-.plan:nth-child(2) > svg {
-  fill: white;
-  width: 2rem;
-  height: 2rem;
+.plan-btn1 {
+  background-color: white;
+  padding: 0.5rem;
+  color: black;
+  font-weight: bold;
+  font-size: 1rem;
+  border: 4px solid transparent;
+  transition: 300ms all;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
 }
 
-.plans > :nth-child(2) > button {
-  color: rgb(0, 0, 0);
+.plan-btn1:hover {
+  transform: scale(1.1);
+  background-color: #1995ee;
 }
 
 .plan > svg {
@@ -72,14 +80,12 @@
 .plan > :nth-child(3) {
   font-size: 3rem;
   font-weight: bolder;
-  color: rgb(215, 232, 239);
-  
+  color: rgb(249, 249, 249);
 }
 
 .plan > :nth-child(5) {
   font-size: 0.8rem;
   font-weight: bold;
-  
 }
 
 .features {

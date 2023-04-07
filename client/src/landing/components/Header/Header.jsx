@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./header.css";
-import Logo from "../../assets/logo.png";
+import Logo from "../../assets/logo3.png";
 import Bars from "../../assets/bars.png";
 import { Link } from "react-scroll";
 
@@ -19,36 +19,35 @@ function Header() {
         </div>
       ) : (
         <ul className="header-menu">
-          {/* <li>
+          <li>
             <Link onClick={() => setMenuOpen(false)} to="hero" span={true} >
               Home
             </Link>
-          </li> */}
+          </li>
           <li>
             <Link onClick={() => setMenuOpen(false)} to="Programs" span={true}>
               Programs
             </Link>
           </li>
           <li>
-            <Link onClick={() => setMenuOpen(false)} to="Reasons" span={true}>
+            <Link onClick={() => setMenuOpen(false)} to="Reasons" span={true} >
               About
             </Link>
           </li>
           <li>
-            <Link onClick={() => setMenuOpen(false)} to="plans" span={true}>
+            <Link onClick={() => setMenuOpen(false)} to="plans" span={true} >
               Plans
             </Link>
           </li>
 
           <li>
-            <Link onClick={() => setMenuOpen(false)} to="Testimonials" span={true}>
+            <Link onClick={() => setMenuOpen(false)} to="Testimonials" span={true} >
               Testimonials
             </Link>
           </li>
           <li>
-            <Link onClick={() => setMenuOpen(false)} to="Join" span={true}>
-              Contact
-            </Link>
+            <Link onClick={() => setMenuOpen(false)} to="Join" span={true} >
+              Contact            </Link>
           </li>
         </ul>
       )}

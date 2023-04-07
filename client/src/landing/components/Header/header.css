@@ -5,20 +5,22 @@
 }
 
 .logo {
-  width: 10rem;
+  width: 11rem;
   height: 10rem;
+  margin-right: 100px;
 }
 
 .header-menu {
-  padding-top: 1rem;
+  padding-top: 3rem;
+  font-weight: 600;
   list-style: none;
   display: flex;
-  gap: 2rem;
+  gap: 4rem;
   color: white;
-  font-size: 25px;
-
+  font-size: 20px;
+  margin-left: 150px;
 }
-  
+
 .header-menu > li {
   cursor: pointer;
 }

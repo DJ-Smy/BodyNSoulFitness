@@ -12,9 +12,9 @@ function Testimonials() {
   return (
     <div className="Testimonials">
       <div className="left-t">
-        <span>Testimonials</span>
-        <span className="name">Why our clients </span>
-        <span>love us</span>
+        <hr />
+        <span className="name gradient-text">Why our clients </span>
+        <span className="gradient-text">love us</span>
         <motion.span
           key={selected}
           initial={{ opacity: 0, x: -100 }}

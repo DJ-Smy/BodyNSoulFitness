@@ -8,6 +8,10 @@ import tick from "../../assets/tick.png";
 
 export const Reasons = () => {
   return (
+    <>
+    <div className="reason-header" style={{ gap: "2rem" }}>
+        <span className="gradient-text">The Benefits of  Choosing Us</span> 
+      </div>
     <div className="Reasons" id="reasons">
       <div className="left-r">
         <img src={image1} alt="image" />
@@ -16,10 +20,10 @@ export const Reasons = () => {
         <img src={image4} alt="image" />
       </div>
       <div className="right-r">
-        <span>About</span>
+        <span className="gradient-text">About</span>
         <div>
           {/* <span className="stroke-text">Why</span> */}
-          <span> Body & Soul Fitness</span>
+          <span className="gradient-text"> Body & Soul Fitness</span>
         </div>
 
         <div className="details-r">
@@ -53,6 +57,7 @@ export const Reasons = () => {
             </div>
         </div>
       </div>
-    // </div>
+     </div>
+     </>
   );
 };
