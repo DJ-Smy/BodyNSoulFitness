@@ -104,6 +104,10 @@
   height: 2rem;
 }
 
+.description {
+  margin-right: 35px;
+}
+
 @media screen and (max-width: 768px) {
   .Reasons {
     flex-direction: column;
