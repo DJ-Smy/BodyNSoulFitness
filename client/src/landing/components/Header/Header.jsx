@@ -30,7 +30,7 @@ function Header() {
             </Link>
           </li>
           <li>
-            <Link onClick={() => setMenuOpen(false)} to="Reasons" span={true} >
+            <Link onClick={() => setMenuOpen(false)} to="Reason1" span={true} >
               About
             </Link>
           </li>
@@ -47,7 +47,7 @@ function Header() {
           </li>
           <li>
             <Link onClick={() => setMenuOpen(false)} to="Join" span={true} >
-              Contact            </Link>
+              Contact</Link>
           </li>
         </ul>
       )}

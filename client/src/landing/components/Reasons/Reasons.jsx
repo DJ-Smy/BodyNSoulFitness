@@ -10,7 +10,7 @@ export const Reasons = () => {
   return (
     <>
     <div className="reason-header" style={{ gap: "2rem" }}>
-        <span className="gradient-text">The Benefits of  Choosing Us</span> 
+        <span className="gradient-text Reason1" >The Benefits of  Choosing Us</span> 
       </div>
     <div className="Reasons" id="reasons">
       <div className="left-r">
