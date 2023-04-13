@@ -159,7 +159,7 @@ function BookAppointment() {
             </Col>
             <Col span={8} sm={24} xs={24} lg={8}>
               <h1 className="normal-text">
-                <b>Timings :</b> {trainer.timings[0]} - {trainer.timings[1]}
+                <b>Available time :</b> {trainer.timings[0]} - {trainer.timings[1]}
               </h1>
               <p>
                 <b>Phone Number : </b>
@@ -228,7 +228,7 @@ function BookAppointment() {
             </Col>
             <Col span={8} sm={24} xs={24} lg={8}>
               <h1 className="normal-text">
-                <b>Timings :</b> {trainer.timings[0]} - {trainer.timings[1]}
+                <b>Available time :</b> {trainer.timings[0]} - {trainer.timings[1]}
               </h1>
               <p>
                 <b>Phone Number : </b>

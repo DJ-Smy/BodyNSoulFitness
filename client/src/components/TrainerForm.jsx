@@ -94,7 +94,7 @@ function TrainerForm({ onFinish, initialValues }) {
         <Col span={8} xs={24} sm={24} lg={8}>
           <Form.Item
             required
-            label="Experience"
+            label="Years of Experience"
             name="experience"
             rules={[
               { required: true, message: "Please input your Experience!" },
@@ -121,7 +121,7 @@ function TrainerForm({ onFinish, initialValues }) {
         <Col span={8} xs={24} sm={24} lg={8}>
           <Form.Item
             required
-            label="Timings"
+            label="Available Time"
             name="timings"
             rules={[{ required: true }]}
           >
@@ -131,7 +131,7 @@ function TrainerForm({ onFinish, initialValues }) {
       </Row>
 
       <div className="d-flex justify-content-end">
-        <Button className="primary-button" htmlType="submit">
+        <Button className="mt-5 primary-button" htmlType="submit">
           SUBMIT
         </Button>
       </div>

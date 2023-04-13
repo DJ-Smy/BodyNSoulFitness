@@ -133,7 +133,7 @@ function Membership() {
         </div>
       </div>
       <br></br>
-      <div style={{ maxWidth: "750px", minHeight: "200px" }}>
+      <div style={{marginTop: "50px" ,marginLeft: "450px" ,maxWidth: "400px", minHeight: "200px" }}>
         <PayPalScriptProvider
           options={{
             "client-id": "test",

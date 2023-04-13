@@ -25,7 +25,7 @@ function Trainer({ trainer }) {
         {trainer.feePerConsultation}
       </p>
       <p>
-        <b>Timings : </b>
+        <b>Available time : </b>
         {trainer.timings[0]} - {trainer.timings[1]}
       </p>
     </div>
