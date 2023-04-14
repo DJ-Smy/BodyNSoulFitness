@@ -52,29 +52,6 @@ function TrainersList() {
     }
   };
 
-  const deleteTrainer = async (record) => {
-    try {
-      dispatch(showLoading());
-      const response = await axios.post(
-        "/api/admin/delete-trainer",
-        { trainerId: record._id, userId: record.userId, tUserId: record.userId },
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      );
-      dispatch(hideLoading());
-      if (response.data.success) {
-        toast.success(response.data.message);
-        getTrainersData();
-      }
-    } catch (error) {
-      toast.error("Error while updating trainer status");
-      dispatch(hideLoading());
-    }
-  };
-
 
   useEffect(() => {
     getTrainersData();
@@ -129,12 +106,14 @@ function TrainersList() {
             </h1>
           )}
           {record.status === "blocked" && (
+            
             <h1
               className="anchor"
               onClick={() => changeTrainerStatus(record, "approved")}
             >
               Approve
             </h1>
+            
           )}
         </div>
       ),

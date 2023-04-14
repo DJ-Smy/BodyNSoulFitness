@@ -43,7 +43,6 @@ router.get("/get-all-users", authMiddleware, async (req, res) => {
 router.post("/change-trainer-status", authMiddleware, async (req, res) => {
   try {
     const { trainerId, status, userId, tUserId } = req.body;
-    console.log(trainerId, status, userId, tUserId);
     const trainer = await Trainer.findByIdAndUpdate(trainerId, {
       status,
     });
