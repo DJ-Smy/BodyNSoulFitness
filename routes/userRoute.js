@@ -115,7 +115,7 @@ router.post("/sendPasswordLink", async (req, res) => {
         from: "bodynsoulfitness2023@gmail.com",
         to: email,
         subject: "Sending Email for password reset",
-        text: `This Link valid for 2 minutes http://capstone.ryangudev.com/forgot-password/${user.id}/${setUserToken.verifyToken}`,
+        text: `This Link valid for 2 minutes http://localhost:3000/forgot-password/${user.id}/${setUserToken.verifyToken}`,
       };
       //http://capstone.ryangudev.com/forgot-password
       //http://localhost:3000
