@@ -115,7 +115,7 @@ router.post("/sendPasswordLink", async (req, res) => {
         from: "bodynsoulfitness2023@gmail.com",
         to: email,
         subject: "Sending Email for password reset",
-        text: `This Link valid for 2 minutes http://localhost:3000/forgot-password/${user.id}/${setUserToken.verifyToken}`,
+        text: `This Link valid for 2 minutes http://capstone.ryangudev.com/forgot-password/${user.id}/${setUserToken.verifyToken}`,
       };
       //http://capstone.ryangudev.com/forgot-password
       //http://localhost:3000
@@ -140,59 +140,65 @@ router.post("/sendPasswordLink", async (req, res) => {
 // forgot password
 // verify user for forgot password time
 
-router.get("/forgot-password/:userId/:token", async (req, res) => {
-  const { userId, token } = req.params;
-  try {
-    const validUser = await User.findOne(
-      { _id: userId },
-      { verifyToken: token }
-    );
-
-    const verifyToken = jwt.verify(token, process.env.JWT_SECRET);
-    //console.log(validUser);
-    //console.log(verifyToken);
-
-    if (validUser && verifyToken.id) {
-      res.status(201).json({ status: 201, validUser });
-    } else {
-      res.status(401).json({ status: 401, message: "user not exist" });
-    }
-  } catch (error) {
-    return res.status(401).send({ status: 500, message: error.message });
-  }
-});
-
-//change password
-router.post("/:userId/:token", async (req, res) => {
-  const { userId, token } = req.params;
-  const { password } = req.body;
-
-  try {
-    const validUser = await User.findOne(
-      { _id: userId },
-      { verifyToken: token }
-    );
-
-    const verifyToken = jwt.verify(token, process.env.JWT_SECRET);
-
-    if (validUser && verifyToken.id) {
-      const salt = await bcrypt.genSalt(10);
-      const newPassword = await bcrypt.hash(password, salt);
-      const setNewUserPassword = await User.findByIdAndUpdate(
+router.get(
+  "http://capstone.ryangudev.com/forgot-password/:userId/:token",
+  async (req, res) => {
+    const { userId, token } = req.params;
+    try {
+      const validUser = await User.findOne(
         { _id: userId },
-        { password: newPassword }
+        { verifyToken: token }
       );
 
-      setNewUserPassword.save();
+      const verifyToken = jwt.verify(token, process.env.JWT_SECRET);
+      //console.log(validUser);
+      //console.log(verifyToken);
 
-      res.status(201).json({ status: 201, setNewUserPassword });
-    } else {
-      res.status(401).json({ status: 401, message: "user not exist" });
+      if (validUser && verifyToken.id) {
+        res.status(201).json({ status: 201, validUser });
+      } else {
+        res.status(401).json({ status: 401, message: "user not exist" });
+      }
+    } catch (error) {
+      return res.status(401).send({ status: 500, message: error.message });
     }
-  } catch (error) {
-    res.status(401).json({ status: 401, message: error.message });
   }
-});
+);
+
+//change password
+router.post(
+  "http://capstone.ryangudev.com/:userId/:token",
+  async (req, res) => {
+    const { userId, token } = req.params;
+    const { password } = req.body;
+
+    try {
+      const validUser = await User.findOne(
+        { _id: userId },
+        { verifyToken: token }
+      );
+
+      const verifyToken = jwt.verify(token, process.env.JWT_SECRET);
+
+      if (validUser && verifyToken.id) {
+        const salt = await bcrypt.genSalt(10);
+        const newPassword = await bcrypt.hash(password, salt);
+        const setNewUserPassword = await User.findByIdAndUpdate(
+          { _id: userId },
+          { password: newPassword }
+        );
+
+        setNewUserPassword.save();
+
+        res.status(201).json({ status: 201, setNewUserPassword });
+      } else {
+        res.status(401).json({ status: 401, message: "user not exist" });
+      }
+    } catch (error) {
+      res.status(401).json({ status: 401, message: error.message });
+    }
+  }
+);
 
 router.post("/get-user-info-by-id", authMiddleware, async (req, res) => {
   try {
