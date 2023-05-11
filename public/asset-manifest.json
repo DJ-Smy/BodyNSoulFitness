@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a5143945.css",
+    "main.js": "/static/js/main.c6ad98d3.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/bodyBuild.jpg": "/static/media/bodyBuild.f00be21344693bab7f2a.jpg",
+    "static/media/image1.jpg": "/static/media/image1.9fa2c26c7411546d617c.jpg",
+    "static/media/image3.jpg": "/static/media/image3.4e2d3915429c99436e78.jpg",
+    "static/media/slide4.jpg": "/static/media/slide4.c35afa681a23ac1144fd.jpg",
+    "static/media/image4.jpg": "/static/media/image4.6e6aec0a11ebacd2a5a4.jpg",
+    "static/media/loginImageRight.jpg": "/static/media/loginImageRight.5f9112e84414d1562e1e.jpg",
+    "static/media/RImageL.jpg": "/static/media/RImageL.30202b91ae58865939df.jpg",
+    "static/media/t-image2.jpg": "/static/media/t-image2.6a9307da9fb78bfe7d04.jpg",
+    "static/media/t-image1.jpg": "/static/media/t-image1.cb4022b716655093d2b0.jpg",
+    "static/media/nutrition.jpg": "/static/media/nutrition.0e933357c7baa06a0641.jpg",
+    "static/media/weightLoss.jpg": "/static/media/weightLoss.0b67930fc747e4066dd7.jpg",
+    "static/media/image2.jpg": "/static/media/image2.1084ed06a371f0164469.jpg",
+    "static/media/loginImageLeft.jpg": "/static/media/loginImageLeft.850fea17307506a73d38.jpg",
+    "static/media/RImageR.jpg": "/static/media/RImageR.588ba5fd129592c052cb.jpg",
+    "static/media/gym.jpg": "/static/media/gym.fdb5952ed400544c47f3.jpg",
+    "static/media/hero_image.png": "/static/media/hero_image.3026be4d582ada7378b8.png",
+    "static/media/t-image3.jpg": "/static/media/t-image3.3894413f7bf2b4f1fc54.jpg",
+    "static/media/logo2.png": "/static/media/logo2.76b016de0e1c4c5f8889.png",
+    "static/media/logo3.png": "/static/media/logo3.a5fc2b310a3bfff9085f.png",
+    "index.html": "/index.html",
+    "main.a5143945.css.map": "/static/css/main.a5143945.css.map",
+    "main.c6ad98d3.js.map": "/static/js/main.c6ad98d3.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a5143945.css",
+    "static/js/main.c6ad98d3.js"
+  ]
+}
